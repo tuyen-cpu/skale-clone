@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     color: #1a1b1f;
     background-color: #0d0d0d;
@@ -6,6 +10,7 @@ body {
     font-weight: 400;
     line-height: 28px;
     margin: 0;
+    overflow-x: hidden;
 }
 
 h1 {
@@ -70,6 +75,18 @@ h6 {
 p {
     color: #efefef;
     margin-bottom: 10px;
+}
+
+a {
+    color: #00baff;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity .2s;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: opacity;
+    display: inline-block;
 }
 
 a {
@@ -298,6 +315,22 @@ body {
 /*    background-color: #f9f9f9;*/
 /*  }*/
 /*}*/
+.w-col {
+    float: left;
+    width: 100%;
+    min-height: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+}
+
+.w-col-9 {
+    width: 75%;
+}
+
+.w-col-3 {
+    width: 25%;
+}
 
 .w-layout-grid {
     grid-row-gap: 16px;
@@ -540,3 +573,8 @@ body {
     padding-bottom: 56.25%;
 }
 
+img {
+    max-width: 100%;
+    vertical-align: middle;
+    display: inline-block;
+}
