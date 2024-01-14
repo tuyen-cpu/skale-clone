@@ -2227,6 +2227,10 @@ iframe {
     position: absolute;
 }
 
+.w-dropdown-list {
+    background: #2e2e2e;
+}
+
 .w-dropdown-list.w--open {
     display: block;
 }
@@ -2235,6 +2239,7 @@ iframe {
     animation: bounce 2.5s linear infinite; /* Thời gian, kiểu và lặp vô hạn */
     transition: transform 0.4s linear;
 }
+
 
 @keyframes bounce {
     0% {
@@ -2746,7 +2751,7 @@ iframe {
 
     .menu-button-2 {
         z-index: 20;
-        background-color: var(--black);
+        background-color: rgba(0, 0, 0, 0);
     }
 
     .div-block-95.black-bg {
