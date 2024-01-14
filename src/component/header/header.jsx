@@ -1,5 +1,6 @@
+import 'animate.css/animate.min.css'
 import './header.css'
-import { useEffect, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 import { Fade as Hamburger } from 'hamburger-react'
 import bannerVideo from '../../assets/skl.mp4'
 import pumpTranscode from '../../assets/pump-transcode.mp4'
@@ -9,6 +10,8 @@ import videoOtherCase3 from '../../assets/6-transcode.mp4'
 import videoOtherCase4 from '../../assets/commerce2-transcode.mp4'
 import videoOtherCase5 from '../../assets/icon4-transcode.mp4'
 import supportCompanies from '../data/top-support.json'
+import { AnimationOnScroll } from 'react-animation-on-scroll'
+import { Dialog, Transition } from '@headlessui/react'
 
 export default function Header() {
   const [topCompanies, setTopCompanies] = useState([...supportCompanies])
@@ -29,6 +32,21 @@ export default function Header() {
   const [isSubmit, setSubmit] = useState(false)
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   const [totalTransaction, setTotalTransaction] = useState(1100000)
+  let [isOpen, setIsOpen] = useState(false)
+
+  function closeModal() {
+    setIsOpen(false)
+  }
+
+  function openModal() {
+    setIsOpen(true)
+  }
+
+
+  function handleDeactivate() {
+    // ...
+  }
+
   useEffect(() => {
     myvideo.current.play()
     pumpTranscodevideo.current.play()
@@ -69,6 +87,8 @@ export default function Header() {
       setFailFormatEmail(true)
       return
     }
+    setIsOpen(true)
+    setEmail('')
   }
   const numberWithCommas = (number) => {
     return number.toLocaleString('en-US')
@@ -78,6 +98,7 @@ export default function Header() {
   }
   return (
     <>
+
       <div className="header-parent">
         <div className="div-block-304">
           <div className="w-dyn-list">
@@ -794,7 +815,7 @@ export default function Header() {
           </div>
         </div>
       </div>
-      <div className="overflow-hidden overflow-unset">
+      <div className="overflow-hidden1 overflow-unset">
         <div className="div-block home v2 pad-5">
           <div className="video-code-container w-embed">
             <div className="background-video-2 hide w-background-video w-background-video-atom">
@@ -806,7 +827,7 @@ export default function Header() {
                 ref={myvideo}
                 style={{
                   backgroundImage:
-                    "url('https://global-uploads.webflow.com/625c39b93541414104a1d654/6278d9990c924b03af8b372c_skl-poster-00001.jpg')",
+                    'url(\'https://global-uploads.webflow.com/625c39b93541414104a1d654/6278d9990c924b03af8b372c_skl-poster-00001.jpg\')',
                 }}
                 playsInline=""
                 data-wf-ignore="true"
@@ -966,6 +987,7 @@ export default function Header() {
             </div>
           </div>
         </div>
+
         <div className="container">
           <img
             className="image-15 planet-animation"
@@ -980,49 +1002,82 @@ export default function Header() {
               Applications
             </strong>
           </h2>
+
           <div className="w-layout-grid grid-2 home-grid">
-            <div id="w-node-c0f430e4-55e7-9d1d-19e5-9cee8dd4fc2c-eddc2eca" className="div-block-6">
-              <h4 className="c-h3 left-align mt-24">Ethereum Native</h4>
-              <p className="c-p mb-32 mob-left">
-                Native integration with Ethereum boosts security, reliability, and fosters a shared
-                revenue stream, bringing value to both networks.
-              </p>
-            </div>
-            <div id="w-node-db0b9a9e-a3b5-0988-7819-07741f71aaa1-eddc2eca" className="div-block-6">
-              <h4 className="c-h3 left-align mt-24">Modular</h4>
-              <p className="c-p mb-32 mob-left">
-                Network capacity increases as new nodes join the network, allowing for limitless
-                scalability. 100 chains = 39,770 TPS; 1000 chains = 397,700 TPS, etc.
-              </p>
-            </div>
-            <div id="w-node-b8a9e753-2e89-be78-6741-540e7e4e1e62-eddc2eca" className="div-block-6">
-              <h4 className="c-h3 left-align mt-24">Shared Security</h4>
-              <p className="c-p mb-32 mob-left">
-                SKALE is a multichain network with shared security, but not shared performance; each
-                node runs 8 chains, randomly rotated for collusion resistance.
-              </p>
-            </div>
-            <div id="w-node-_74ae4ab9-dd27-fe1a-e0f7-09df0149da79-eddc2eca" className="div-block-6">
-              <h4 className="c-h3 left-align mt-24">Eco-Friendly</h4>
-              <p className="c-p mb-32 mob-left">
-                SKALE is an eco-friendly blockchain using PoS and efficient containerization to
-                optimize resource allocation of SKALE compute, reducing waste.
-              </p>
-            </div>
-            <div id="w-node-fd949f8a-f4e7-6c5b-e9fb-a614c58c1a10-eddc2eca" className="div-block-6">
-              <h4 className="c-h3 left-align mt-24">On-chain File&nbsp;Storage</h4>
-              <p className="c-p mb-32 mob-left">
-                On-chain file storage for Dapps enables full websites, AI/ML integration, and
-                trustless on-chain NFT image storage.
-              </p>
-            </div>
-            <div id="w-node-_92a8fd03-0a6b-bab8-8755-394313fffff5-eddc2eca" className="div-block-6">
-              <h4 className="c-h3 left-align mt-24">Instant Finality</h4>
-              <p className="c-p mb-32 mob-left">
-                Instant block finality on SKALE prevents MEV, time bandit attacks, and re-orgs,
-                solving latency and slow finality plaguing other blockchains.
-              </p>
-            </div>
+            <AnimationOnScroll animateIn="animate__bounceIn">
+              <div
+                id="w-node-c0f430e4-55e7-9d1d-19e5-9cee8dd4fc2c-eddc2eca"
+                className="div-block-6 div-block-6-custom"
+              >
+                <h4 className="c-h3 left-align mt-24">Ethereum Native</h4>
+                <p className="c-p mb-32 mob-left">
+                  Native integration with Ethereum boosts security, reliability, and fosters a shared
+                  revenue stream, bringing value to both networks.
+                </p>
+              </div>
+            </AnimationOnScroll>
+            <AnimationOnScroll animateIn="animate__bounceIn">
+              <div
+                id="w-node-db0b9a9e-a3b5-0988-7819-07741f71aaa1-eddc2eca"
+                className="div-block-6 div-block-6-custom"
+              >
+                <h4 className="c-h3 left-align mt-24">Modular</h4>
+                <p className="c-p mb-32 mob-left">
+                  Network capacity increases as new nodes join the network, allowing for limitless
+                  scalability. 100 chains = 39,770 TPS; 1000 chains = 397,700 TPS, etc.
+                </p>
+              </div>
+            </AnimationOnScroll>
+            <AnimationOnScroll animateIn="animate__bounceIn">
+              <div
+                id="w-node-b8a9e753-2e89-be78-6741-540e7e4e1e62-eddc2eca"
+                className="div-block-6 div-block-6-custom"
+              >
+                <h4 className="c-h3 left-align mt-24">Shared Security</h4>
+                <p className="c-p mb-32 mob-left">
+                  SKALE is a multichain network with shared security, but not shared performance; each
+                  node runs 8 chains, randomly rotated for collusion resistance.
+                </p>
+              </div>
+            </AnimationOnScroll>
+            <AnimationOnScroll animateIn="animate__bounceIn">
+              <div
+                id="w-node-_74ae4ab9-dd27-fe1a-e0f7-09df0149da79-eddc2eca"
+                className="div-block-6 div-block-6-custom"
+              >
+                <h4 className="c-h3 left-align mt-24">Eco-Friendly</h4>
+                <p className="c-p mb-32 mob-left">
+                  SKALE is an eco-friendly blockchain using PoS and efficient containerization to
+                  optimize resource allocation of SKALE compute, reducing waste.
+                </p>
+              </div>
+            </AnimationOnScroll>
+            <AnimationOnScroll animateIn="animate__bounceIn">
+              <div
+                id="w-node-fd949f8a-f4e7-6c5b-e9fb-a614c58c1a10-eddc2eca"
+                className="div-block-6 div-block-6-custom"
+              >
+                <h4 className="c-h3 left-align mt-24">On-chain File&nbsp;Storage</h4>
+                <p className="c-p mb-32 mob-left">
+                  On-chain file storage for Dapps enables full websites, AI/ML integration, and
+                  trustless on-chain NFT image storage.
+                </p>
+              </div>
+            </AnimationOnScroll>
+            <AnimationOnScroll animateIn="animate__bounceIn">
+              <div
+                id="w-node-_92a8fd03-0a6b-bab8-8755-394313fffff5-eddc2eca"
+                className="div-block-6 div-block-6-custom"
+              >
+                <h4 className="c-h3 left-align mt-24">Instant Finality</h4>
+                <p className="c-p mb-32 mob-left">
+                  Instant block finality on SKALE prevents MEV, time bandit attacks, and re-orgs,
+                  solving latency and slow finality plaguing other blockchains.
+                </p>
+              </div>
+            </AnimationOnScroll>
+
+
           </div>
           <div className="div-block-74">
             <img
@@ -1179,52 +1234,61 @@ export default function Header() {
         <div className="container small">
           <h2 className="c-h2 left-align mb-0 p-r v2 smaller">Why Choose SKALE For Gaming</h2>
           <div className="w-layout-grid grid-33">
-            <div
-              id="w-node-ba33d296-6fd6-0dde-907d-4e8a89484d9e-eddc2eca"
-              className="div-block-6 about-kit vertical flex-left no-pointer"
-            >
-              <div className="div-block-18 max-none">
-                <img src="./img/1_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
+            <AnimationOnScroll animateIn="animate__bounceInLeft">
+              <div
+                id="w-node-ba33d296-6fd6-0dde-907d-4e8a89484d9e-eddc2eca"
+                className="div-block-6 about-kit vertical flex-left no-pointer why-choose-custom"
+              >
+                <div className="div-block-18 max-none">
+                  <img src="./img/1_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
+                </div>
+                <h4 className="c-h3 left-align mt-24 mb-v2-h">Zero Gas Fees</h4>
+                <p className="c-p mob-left">
+                  Transactions are free on SKALE. Offer unlimited free mints, onboard players within
+                  seconds, and build great experiences.
+                </p>
               </div>
-              <h4 className="c-h3 left-align mt-24 mb-v2-h">Zero Gas Fees</h4>
-              <p className="c-p mob-left">
-                Transactions are free on SKALE. Offer unlimited free mints, onboard players within
-                seconds, and build great experiences.
-              </p>
-            </div>
-            <div className="div-block-6 about-kit vertical flex-left no-pointer">
-              <div className="div-block-18 max-none">
-                <img src="./img/2_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
+            </AnimationOnScroll>
+            <AnimationOnScroll animateIn="animate__bounceInRight">
+              <div className="div-block-6 about-kit vertical flex-left no-pointer why-choose-custom">
+                <div className="div-block-18 max-none">
+                  <img src="./img/2_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
+                </div>
+                <h4 className="c-h3 left-align mt-24 mb-v2-h">Game Changing Speed</h4>
+                <p className="c-p mob-left">
+                  <a href="#" target="noreferrer">
+                    The fastest blockchain in the industry
+                  </a>
+                  , SKALE offers unparalleled speed, low latency, and instant finality. Your players
+                  will want to play.
+                </p>
               </div>
-              <h4 className="c-h3 left-align mt-24 mb-v2-h">Game Changing Speed</h4>
-              <p className="c-p mob-left">
-                <a href="#" target="noreferrer">
-                  The fastest blockchain in the industry
-                </a>
-                , SKALE offers unparalleled speed, low latency, and instant finality. Your players
-                will want to play.
-              </p>
-            </div>
-            <div className="div-block-6 about-kit vertical flex-left no-pointer">
-              <div className="div-block-18 max-none">
-                <img src="./img/3_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
+            </AnimationOnScroll>
+            <AnimationOnScroll animateIn="animate__bounceInLeft">
+              <div className="div-block-6 about-kit vertical flex-left no-pointer why-choose-custom">
+                <div className="div-block-18 max-none">
+                  <img src="./img/3_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
+                </div>
+                <h4 className="c-h3 left-align mt-24 mb-v2-h">Built-in Game Development Tools</h4>
+                <p className="c-p mob-left">
+                  Native file storage, RNG, and UX/UI. Prototype quicker, build faster, and iterate
+                  more without added costs.&nbsp; &nbsp;
+                </p>
               </div>
-              <h4 className="c-h3 left-align mt-24 mb-v2-h">Built-in Game Development Tools</h4>
-              <p className="c-p mob-left">
-                Native file storage, RNG, and UX/UI. Prototype quicker, build faster, and iterate
-                more without added costs.&nbsp; &nbsp;
-              </p>
-            </div>
-            <div className="div-block-6 about-kit vertical flex-left no-pointer">
-              <div className="div-block-18 max-none">
-                <img src="./img/4_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
+            </AnimationOnScroll>
+            <AnimationOnScroll animateIn="animate__bounceInRight">
+              <div className="div-block-6 about-kit vertical flex-left no-pointer why-choose-custom">
+                <div className="div-block-18 max-none">
+                  <img src="./img/4_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
+                </div>
+                <h4 className="c-h3 left-align mt-24 mb-v2-h">Configure to Your Needs</h4>
+                <p className="c-p mob-left">
+                  Prototype your game or build your own chain. Permissioned or permissionless, you
+                  take control.
+                </p>
               </div>
-              <h4 className="c-h3 left-align mt-24 mb-v2-h">Configure to Your Needs</h4>
-              <p className="c-p mob-left">
-                Prototype your game or build your own chain. Permissioned or permissionless, you
-                take control.
-              </p>
-            </div>
+            </AnimationOnScroll>
+
           </div>
         </div>
         <div className="div-block-78">
@@ -1251,7 +1315,8 @@ export default function Header() {
                 </h4>
                 <p className="c-p">Create an invisible gaming experience.</p>
               </div>
-              <div className="column-11 reverse flex-align-center hc-11 w-col w-col-6 w-col-stack w-col-tiny-tiny-stack">
+              <div
+                className="column-11 reverse flex-align-center hc-11 w-col w-col-6 w-col-stack w-col-tiny-tiny-stack">
                 <div
                   style={{ paddingTop: '56.17021276595745%' }}
                   className="w-embed-youtubevideo youtube"
@@ -1367,39 +1432,46 @@ export default function Header() {
           <div className="container">
             <h2 className="c-h2 left-align mb-0 p-r v2 smaller">AI-Optimized Features</h2>
             <div className="w-layout-grid grid-2 home-grid _3">
-              <div
-                id="w-node-a157e035-4bdc-f010-4e6e-e0fa6cae90a3-eddc2eca"
-                className="div-block-6 vv"
-              >
-                <img src="./img/Frame-1.svg" loading="lazy" alt="" className="image-255" />
-                <h4 className="c-h3 left-align mt-24">Predictable Costs for High Throughput</h4>
-                <p className="c-p mb-32 mob-left">
-                  AI applications require automated, high-volume transactions that are impossible
-                  without zero gas fees.
-                </p>
-              </div>
-              <div
-                id="w-node-a157e035-4bdc-f010-4e6e-e0fa6cae90a8-eddc2eca"
-                className="div-block-6 vv"
-              >
-                <img src="./img/Frame-2.svg" loading="lazy" alt="" className="image-255" />
-                <h4 className="c-h3 left-align mt-24">AI/ML Execution within Smart Contracts</h4>
-                <p className="c-p mb-32 mob-left">
-                  Run pre-trained AI models within a smart contract, creating a trustless
-                  environment for AI-driven executions.
-                </p>
-              </div>
-              <div
-                id="w-node-a157e035-4bdc-f010-4e6e-e0fa6cae90ad-eddc2eca"
-                className="div-block-6 vv"
-              >
-                <img src="./img/Frame-3.svg" loading="lazy" alt="" className="image-255" />
-                <h4 className="c-h3 left-align mt-24">Instant Finality and Zero MEV</h4>
-                <p className="c-p mb-32 mob-left">
-                  Once a transaction is commenced, it immediately comes to finality, preventing
-                  manipulations like front-running.
-                </p>
-              </div>
+              <AnimationOnScroll animateIn="animate__flipInY">
+                <div
+                  id="w-node-a157e035-4bdc-f010-4e6e-e0fa6cae90a3-eddc2eca"
+                  className="div-block-6 vv"
+                >
+                  <img src="./img/Frame-1.svg" loading="lazy" alt="" className="image-255" />
+                  <h4 className="c-h3 left-align mt-24">Predictable Costs for High Throughput</h4>
+                  <p className="c-p mb-32 mob-left">
+                    AI applications require automated, high-volume transactions that are impossible
+                    without zero gas fees.
+                  </p>
+                </div>
+              </AnimationOnScroll>
+              <AnimationOnScroll animateIn="animate__flipInY">
+                <div
+                  id="w-node-a157e035-4bdc-f010-4e6e-e0fa6cae90a8-eddc2eca"
+                  className="div-block-6 vv"
+                >
+                  <img src="./img/Frame-2.svg" loading="lazy" alt="" className="image-255" />
+                  <h4 className="c-h3 left-align mt-24">AI/ML Execution within Smart Contracts</h4>
+                  <p className="c-p mb-32 mob-left">
+                    Run pre-trained AI models within a smart contract, creating a trustless
+                    environment for AI-driven executions.
+                  </p>
+                </div>
+              </AnimationOnScroll>
+              <AnimationOnScroll animateIn="animate__flipInY">
+                <div
+                  id="w-node-a157e035-4bdc-f010-4e6e-e0fa6cae90ad-eddc2eca"
+                  className="div-block-6 vv"
+                >
+                  <img src="./img/Frame-3.svg" loading="lazy" alt="" className="image-255" />
+                  <h4 className="c-h3 left-align mt-24">Instant Finality and Zero MEV</h4>
+                  <p className="c-p mb-32 mob-left">
+                    Once a transaction is commenced, it immediately comes to finality, preventing
+                    manipulations like front-running.
+                  </p>
+                </div>
+              </AnimationOnScroll>
+
             </div>
           </div>
         </div>
@@ -1649,96 +1721,114 @@ export default function Header() {
               experience.
             </p>
             <div className="w-layout-grid grid-5 mobile-grid-h-scroll">
-              <div
-                id="w-node-dc4a63f8-9f85-3a02-375f-d37c23dd719b-eddc2eca"
-                className="div-block-6 tech-works-card scroll-item"
-              >
-                <h4 className="c-h3 left-align no-m">
-                  Virtualized subnodes &amp; decentralized blockchain
-                </h4>
-              </div>
-              <div
-                id="w-node-dc4a63f8-9f85-3a02-375f-d37c23dd719e-eddc2eca"
-                className="div-block-6 tech-works-card scroll-item"
-              >
-                <h4 className="c-h3 left-align no-m">Ethereum-native chain orchestration method</h4>
-              </div>
-              <div
-                id="w-node-dc4a63f8-9f85-3a02-375f-d37c23dd71a1-eddc2eca"
-                className="div-block-6 tech-works-card scroll-item"
-              >
-                <h4 className="c-h3 left-align no-m">10M+ transactions per day per chain</h4>
-              </div>
-              <div
-                id="w-node-dc4a63f8-9f85-3a02-375f-d37c23dd71a4-eddc2eca"
-                className="div-block-6 tech-works-card scroll-item"
-              >
-                <h4 className="c-h3 left-align no-m">High-performing pooled validation model</h4>
-              </div>
-              <div
-                id="w-node-dc4a63f8-9f85-3a02-375f-d37c23dd71a7-eddc2eca"
-                className="div-block-6 tech-works-card scroll-item"
-              >
-                <h4 className="c-h3 left-align no-m">
-                  Secured by random &amp; regular node rotation
-                </h4>
-              </div>
-              <div
-                id="w-node-dc4a63f8-9f85-3a02-375f-d37c23dd71aa-eddc2eca"
-                className="div-block-6 tech-works-card scroll-item"
-              >
-                <h4 className="c-h3 left-align no-m">
-                  Easily deploy Ethereum-based smart contracts{' '}
-                </h4>
-              </div>
+              <AnimationOnScroll animateIn="animate__fadeIn">
+                <div
+                  id="w-node-dc4a63f8-9f85-3a02-375f-d37c23dd719b-eddc2eca"
+                  className="div-block-6 tech-works-card scroll-item"
+                >
+                  <h4 className="c-h3 left-align no-m">
+                    Virtualized subnodes &amp; decentralized blockchain
+                  </h4>
+                </div>
+              </AnimationOnScroll>
+              <AnimationOnScroll animateIn="animate__fadeIn">
+                <div
+                  id="w-node-dc4a63f8-9f85-3a02-375f-d37c23dd719e-eddc2eca"
+                  className="div-block-6 tech-works-card scroll-item"
+                >
+                  <h4 className="c-h3 left-align no-m">Ethereum-native chain orchestration method</h4>
+                </div>
+              </AnimationOnScroll>
+              <AnimationOnScroll animateIn="animate__fadeIn">
+                <div
+                  id="w-node-dc4a63f8-9f85-3a02-375f-d37c23dd71a1-eddc2eca"
+                  className="div-block-6 tech-works-card scroll-item"
+                >
+                  <h4 className="c-h3 left-align no-m">10M+ transactions per day per chain</h4>
+                </div>
+              </AnimationOnScroll>
+              <AnimationOnScroll animateIn="animate__fadeIn">
+                <div
+                  id="w-node-dc4a63f8-9f85-3a02-375f-d37c23dd71a4-eddc2eca"
+                  className="div-block-6 tech-works-card scroll-item"
+                >
+                  <h4 className="c-h3 left-align no-m">High-performing pooled validation model</h4>
+                </div>
+              </AnimationOnScroll>
+              <AnimationOnScroll animateIn="animate__fadeIn">
+                <div
+                  id="w-node-dc4a63f8-9f85-3a02-375f-d37c23dd71a7-eddc2eca"
+                  className="div-block-6 tech-works-card scroll-item"
+                >
+                  <h4 className="c-h3 left-align no-m">
+                    Secured by random &amp; regular node rotation
+                  </h4>
+                </div>
+              </AnimationOnScroll>
+
+
+              <AnimationOnScroll animateIn="animate__fadeIn">
+                <div
+                  id="w-node-dc4a63f8-9f85-3a02-375f-d37c23dd71aa-eddc2eca"
+                  className="div-block-6 tech-works-card scroll-item"
+                >
+                  <h4 className="c-h3 left-align no-m">
+                    Easily deploy Ethereum-based smart contracts{' '}
+                  </h4>
+                </div>
+              </AnimationOnScroll>
+
             </div>
           </div>
         </div>
         <div className="div-block-77">
           <div className="container no-flex">
             <h2 className="c-h2 mb-0 left-align">The Tech Behind SKALE</h2>
-            <div className="w-layout-grid grid-6">
-              <div
-                id="w-node-e5fa6630-765b-3e74-d1d2-c0b3f2f1ef5d-eddc2eca"
-                className="div-block-6 about-kit vertical flex-left"
-              >
-                <div className="div-block-18">
-                  <img
-                    src="./img/6289216f50f59f6ddf538d58_nodes1.svg"
-                    loading="lazy"
-                    alt=""
-                    className="tech-icon"
-                  />
+            <AnimationOnScroll animateIn="animate__bounceInRight">
+              <div className="w-layout-grid grid-6">
+                <div
+                  id="w-node-e5fa6630-765b-3e74-d1d2-c0b3f2f1ef5d-eddc2eca"
+                  className="div-block-6 about-kit vertical flex-left"
+                >
+                  <div className="div-block-18">
+                    <img
+                      src="./img/6289216f50f59f6ddf538d58_nodes1.svg"
+                      loading="lazy"
+                      alt=""
+                      className="tech-icon"
+                    />
+                  </div>
+                  <h4 className="c-h3 left-align mt-24 mb-v2-h">Leaderless BFT&nbsp;Consensus </h4>
+                  <p className="c-p mob-left">
+                    SKALE's block creation uses a variant of ABBA protocol, limiting subnode downtime
+                    by detecting slow links in its consensus model.
+                  </p>
                 </div>
-                <h4 className="c-h3 left-align mt-24 mb-v2-h">Leaderless BFT&nbsp;Consensus </h4>
-                <p className="c-p mob-left">
-                  SKALE's block creation uses a variant of ABBA protocol, limiting subnode downtime
-                  by detecting slow links in its consensus model.
-                </p>
-              </div>
-              <div className="div-block-6 about-kit vertical flex-left">
-                <div className="div-block-18">
-                  <img src="./img/journey1.svg" loading="lazy" alt="" className="tech-icon" />
+                <div className="div-block-6 about-kit vertical flex-left">
+                  <div className="div-block-18">
+                    <img src="./img/journey1.svg" loading="lazy" alt="" className="tech-icon" />
+                  </div>
+                  <h4 className="c-h3 left-align mt-24 mb-v2-h">
+                    Interchain Messaging: BLS Threshold Signatures
+                  </h4>
+                  <p className="c-p mob-left">
+                    Virtualized subnodes validate cross-chain transactions using group signatures once
+                    published to Ethereum mainnet.
+                  </p>
                 </div>
-                <h4 className="c-h3 left-align mt-24 mb-v2-h">
-                  Interchain Messaging: BLS Threshold Signatures
-                </h4>
-                <p className="c-p mob-left">
-                  Virtualized subnodes validate cross-chain transactions using group signatures once
-                  published to Ethereum mainnet.
-                </p>
-              </div>
-              <div className="div-block-6 about-kit vertical flex-left">
-                <div className="div-block-18">
-                  <img src="./img/blockchain1.svg" loading="lazy" alt="" className="tech-icon" />
+                <div className="div-block-6 about-kit vertical flex-left">
+                  <div className="div-block-18">
+                    <img src="./img/blockchain1.svg" loading="lazy" alt="" className="tech-icon" />
+                  </div>
+                  <h4 className="c-h3 left-align mt-24 mb-v2-h">Node Monitoring</h4>
+                  <p className="c-p mob-left">
+                    Each SKALE Chain's node monitoring service tracks others' performance, measuring
+                    uptime and latency by regularly pinging and logging peer nodes.
+                  </p>
                 </div>
-                <h4 className="c-h3 left-align mt-24 mb-v2-h">Node Monitoring</h4>
-                <p className="c-p mob-left">
-                  Each SKALE Chain's node monitoring service tracks others' performance, measuring
-                  uptime and latency by regularly pinging and logging peer nodes.
-                </p>
               </div>
-            </div>
+            </AnimationOnScroll>
+
             <img
               className="image-27 planet-animation"
               src="./img/rocket.png"
@@ -1857,31 +1947,34 @@ export default function Header() {
           <div className="div-block-143">
             <h2 className="c-h2">Top SKALE Supporters</h2>
             <div className="div-block-144 toss">
-              <div className="w-dyn-list">
-                <div role="list" className="collection-list-6 w-dyn-items">
-                  {topCompanies.map((supportCompany) => (
-                    <div key={supportCompany.id} role="listitem" className="w-dyn-item">
-                      <div className="div-block-181">
-                        <div className="div-block-345">
-                          <img
-                            src={`./img/${supportCompany.image}`}
-                            loading="lazy"
-                            alt=""
-                            className="support-logo"
-                          />
+              <AnimationOnScroll animateIn="animate__flipInY">
+                <div className="w-dyn-list">
+                  <div role="list" className="collection-list-6 w-dyn-items">
+                    {topCompanies.map((supportCompany) => (
+                      <div key={supportCompany.id} role="listitem" className="w-dyn-item">
+                        <div className="div-block-181">
+                          <div className="div-block-345">
+                            <img
+                              src={`./img/${supportCompany.image}`}
+                              loading="lazy"
+                              alt=""
+                              className="support-logo"
+                            />
+                          </div>
+                          <div className="supporter-nam">{supportCompany.name}</div>
+                          <a
+                            href={supportCompany.link}
+                            target="noreferrer"
+                            className="link-block-16 link w-inline-block"
+                          ></a>
+                          <link rel="prerender" href="https://www.acrewcapital.com" />
                         </div>
-                        <div className="supporter-nam">{supportCompany.name}</div>
-                        <a
-                          href={supportCompany.link}
-                          target="noreferrer"
-                          className="link-block-16 link w-inline-block"
-                        ></a>
-                        <link rel="prerender" href="https://www.acrewcapital.com" />
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </AnimationOnScroll>
+
             </div>
           </div>
         </div>
@@ -2015,16 +2108,16 @@ export default function Header() {
                       </a>
                     </div>
                   </form>
-                  {isSubmit && !isFailFormatEmail && !isRequiredEmail && (
-                    <div
-                      className="message w-form-done"
-                      tabIndex="-1"
-                      role="region"
-                      aria-label="Email Form success"
-                    >
-                      <div>We will send the latest updates to your Email</div>
-                    </div>
-                  )}
+                  {/*{isSubmit && !isFailFormatEmail && !isRequiredEmail && (*/}
+                  {/*  <div*/}
+                  {/*    className="message w-form-done"*/}
+                  {/*    tabIndex="-1"*/}
+                  {/*    role="region"*/}
+                  {/*    aria-label="Email Form success"*/}
+                  {/*  >*/}
+                  {/*    <div>We will send the latest updates to your Email</div>*/}
+                  {/*  </div>*/}
+                  {/*)}*/}
                   {isRequiredEmail && (
                     <div
                       className="message w-form-fail"
@@ -2084,6 +2177,60 @@ export default function Header() {
           </div>
         </div>
       </div>
+      <Transition appear show={isOpen} as={Fragment}>
+        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black/25" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <Dialog.Panel
+                  className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                  <Dialog.Title
+                    as="h3"
+                    className="text-lg font-medium leading-6"
+                  >
+                    Announcement
+                  </Dialog.Title>
+                  <div className="mt-2">
+                    <p className="text-sm text-white">
+                      We will send the latest updates to your Email.
+                    </p>
+                  </div>
+
+                  <div className="mt-4">
+                    <button
+                      type="button"
+                      className="inline-flex justify-center rounded-md border  bg-blue-100 px-4 py-2 text-sm font-medium hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      onClick={closeModal}
+                    >
+                      Got it, thanks!
+                    </button>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition>
     </>
   )
 }

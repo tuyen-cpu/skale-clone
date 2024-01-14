@@ -391,11 +391,11 @@
     color: var(--white);
 }
 
-.overflow-hidden.overflow-unset, .overflow-hidden.overflow-auto {
+.overflow-hidden1.overflow-unset, .overflow-hidden1.overflow-auto {
     overflow: visible;
 }
 
-.overflow-hidden {
+.overflow-hidden1 {
     width: 100%;
     height: auto;
     background-color: var(--black);
@@ -2236,35 +2236,60 @@ iframe {
 }
 
 .planet-animation {
-    animation: bounce 2.5s linear infinite; /* Thời gian, kiểu và lặp vô hạn */
-    transition: transform 0.4s linear;
+    transition: all 500ms;
 }
 
+.div-block-6-custom {
+    height: 100%;
+}
+
+.div-block-6-custom h4.c-h3 {
+    transition: font-size 0.3s ease-in-out;
+}
+
+.div-block-6-custom:hover h4.c-h3 {
+    font-size: 25px;
+}
+
+/*.div-block-6-custom p.c-p {*/
+/*    transition: font-size 0.3s ease-in-out;*/
+/*}*/
+
+/*.div-block-6-custom:hover p.c-p {*/
+/*    font-size: 17px;*/
+/*}*/
+.why-choose-custom img {
+    transition: all 0.3s ease-in-out;
+}
+
+.why-choose-custom:hover img {
+    transform: scale(1.25);
+}
 
 @keyframes bounce {
     0% {
-        transform: translateX(0) translateY(0); /* Đứng đưa tại chỗ */
+        transform: translateY(0); /* Đứng đưa tại chỗ */
     }
     10% {
-        transform: translateX(2px) translateY(-2px);
+        transform: translateY(-2px);
     }
     20% {
-        transform: translateX(4px) translateY(-5px);
+        transform: translateY(-5px);
     }
     30% {
-        transform: translateX(10px) translateY(-7px);
+        transform: translateY(-7px);
     }
     40% {
-        transform: translateX(8px) translateY(-10px);
+        transform: translateY(-10px);
     }
     60% {
-        transform: translateX(6px) translateY(-15px);
+        transform: translateY(-15px);
     }
     80% {
-        transform: translateX(2px) translateY(-10px);
+        transform: translateY(-10px);
     }
     100% {
-        transform: translateX(0px) translateY(0);
+        transform: translateY(0);
     }
 }
 
@@ -2275,6 +2300,15 @@ iframe {
     bottom: 0%;
     left: 0%;
     right: 0%;
+}
+
+.vv {
+    height: 100%;
+}
+
+.overflow-hidden {
+    --tw-bg-opacity: 1;
+    background-color: rgb(30 41 59/var(--tw-bg-opacity));
 }
 
 /* normal */
