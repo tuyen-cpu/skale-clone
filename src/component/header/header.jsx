@@ -3,15 +3,72 @@ import { useEffect, useRef, useState } from 'react'
 import { Fade as Hamburger } from 'hamburger-react'
 import bannerVideo from '../../assets/skl.mp4'
 import pumpTranscode from '../../assets/pump-transcode.mp4'
+import videoOtherCase1 from '../../assets/transcode.mp4'
+import videoOtherCase2 from '../../assets/media2-transcode.mp4'
+import videoOtherCase3 from '../../assets/6-transcode.mp4'
+import videoOtherCase4 from '../../assets/commerce2-transcode.mp4'
+import videoOtherCase5 from '../../assets/icon4-transcode.mp4'
+import supportCompanies from '../data/top-support.json'
 
 export default function Header() {
+  const [topCompanies, setTopCompanies] = useState([...supportCompanies])
   const [isOpenSideBar, setOpenSideBar] = useState(false)
   const myvideo = useRef(null)
   const pumpTranscodevideo = useRef(null)
+  const videoOtherCase1Ref = useRef(null)
+  const videoOtherCase2Ref = useRef(null)
+  const videoOtherCase3Ref = useRef(null)
+  const videoOtherCase4Ref = useRef(null)
+  const videoOtherCase5Ref = useRef(null)
+  const [email, setEmail] = useState('')
+  const [clicked, setClicked] = useState(false)
+  const [isRequiredEmail, setRequiredEmail] = useState(false)
+  const [isFailFormatEmail, setFailFormatEmail] = useState(false)
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  const [totalTransaction, setTotalTransaction] = useState(1100000)
   useEffect(() => {
     myvideo.current.play()
     pumpTranscodevideo.current.play()
+    videoOtherCase1Ref.current.play()
+    videoOtherCase2Ref.current.play()
+    videoOtherCase3Ref.current.play()
+    videoOtherCase4Ref.current.play()
+    videoOtherCase5Ref.current.play()
+    const intervalId = setInterval(() => {
+      // Tăng giá trị count mỗi 0.5 giây
+      setTotalTransaction((prevCount) => prevCount + 1)
+    }, 500)
+
+    // Đảm bảo xoá interval khi component unmount
+    return () => clearInterval(intervalId)
   }, [])
+  const handleInputChange = (event) => {
+    setEmail(event.target.value)
+    if (event.target.value === '') {
+      setRequiredEmail(true)
+      setFailFormatEmail(false)
+    } else {
+      setRequiredEmail(false)
+    }
+  }
+
+  const handleSubmit = (event) => {
+    setFailFormatEmail(false)
+    setRequiredEmail(false)
+    event.preventDefault()
+    if (!email || !email.trim()) {
+      setRequiredEmail(true)
+      return
+    }
+
+    if (!emailRegex.test(email)) {
+      setFailFormatEmail(true)
+      return
+    }
+  }
+  const numberWithCommas = (number) => {
+    return number.toLocaleString('en-US')
+  }
   return (
     <>
       <div className="header-parent">
@@ -554,7 +611,7 @@ export default function Header() {
                   <div className="div-block-329">
                     <div className="div-block-321">
                       <div id="total-transactions" className="text-block-86">
-                        255,922,478
+                        {numberWithCommas(totalTransaction)}
                       </div>
                       <div className="text-block-84">Total Transactions</div>
                     </div>
@@ -834,10 +891,9 @@ export default function Header() {
             </div>
             <div className="column-11 reverse flex-align-center hc-11 w-col w-col-6 w-col-stack">
               <img
-                src="https://assets-global.website-files.com/625c39b93541414104a1d654/6555c161c6a7b45c717a2586_Frame%2045585.png"
+                src="./img/Frame45585.png"
                 loading="lazy"
                 sizes="100vw"
-                srcSet="https://assets-global.website-files.com/625c39b93541414104a1d654/6555c161c6a7b45c717a2586_Frame%2045585-p-500.png 500w, https://assets-global.website-files.com/625c39b93541414104a1d654/6555c161c6a7b45c717a2586_Frame%2045585-p-800.png 800w, https://assets-global.website-files.com/625c39b93541414104a1d654/6555c161c6a7b45c717a2586_Frame%2045585.png 831w"
                 alt=""
                 className="image-243 mb-32"
               />
@@ -1077,8 +1133,6 @@ export default function Header() {
             <div className="solution-card _w-30">
               <div className="img-holder solution-img solution-2 square img-holder-fix">
                 <div
-                  data-poster-url="https://assets-global.website-files.com/625c39b93541414104a1d654/628d239d6ba392b7c348dd08_defi2-poster-00001.jpg"
-                  data-video-urls="https://assets-global.website-files.com/625c39b93541414104a1d654/628d239d6ba392b7c348dd08_defi2-transcode.mp4,https://assets-global.website-files.com/625c39b93541414104a1d654/628d239d6ba392b7c348dd08_defi2-transcode.webm"
                   data-autoplay="true"
                   data-loop="true"
                   data-wf-ignore="true"
@@ -1087,28 +1141,24 @@ export default function Header() {
                 >
                   <video
                     id="99290e9f-5537-83a9-5eee-b434ef5f051e-video"
-                    autoPlay=""
-                    loop=""
-                    style='background-image:url("https://assets-global.website-files.com/625c39b93541414104a1d654/628d239d6ba392b7c348dd08_defi2-poster-00001.jpg")'
-                    muted=""
-                    playsInline=""
+                    style={{
+                      backgroundImage:
+                        'url("https://assets-global.website-files.com/625c39b93541414104a1d654/628d239d6ba392b7c348dd08_defi2-poster-00001.jpg")',
+                    }}
+                    muted
+                    preload="auto"
+                    loop
                     data-wf-ignore="true"
                     data-object-fit="cover"
+                    ref={videoOtherCase1Ref}
                   >
-                    <source
-                      src="https://assets-global.website-files.com/625c39b93541414104a1d654/628d239d6ba392b7c348dd08_defi2-transcode.mp4"
-                      data-wf-ignore="true"
-                    />
-                    <source
-                      src="https://assets-global.website-files.com/625c39b93541414104a1d654/628d239d6ba392b7c348dd08_defi2-transcode.webm"
-                      data-wf-ignore="true"
-                    />
+                    <source src={videoOtherCase1} data-wf-ignore="true" />
                   </video>
                 </div>
               </div>
               <h4 className="heading h4 solution-card-title">DeFi</h4>
               <p className="c-p mb-32 mob-left">
-                <a href="https://skale.space/network/defi" target="noreferrer" className="link-18">
+                <a href="#" target="noreferrer" className="link-18">
                   Unlock DeFi’s full potential
                 </a>{' '}
                 on the only EVM network with zero gas fees. Stay secure with no MEV or
@@ -1118,8 +1168,6 @@ export default function Header() {
             <div className="solution-card _w-30">
               <div className="img-holder solution-img solution-3 square img-holder-fix">
                 <div
-                  data-poster-url="https://assets-global.website-files.com/625c39b93541414104a1d654/628d236d0626895c9b65b3e1_media2-poster-00001.jpg"
-                  data-video-urls="https://assets-global.website-files.com/625c39b93541414104a1d654/628d236d0626895c9b65b3e1_media2-transcode.mp4,https://assets-global.website-files.com/625c39b93541414104a1d654/628d236d0626895c9b65b3e1_media2-transcode.webm"
                   data-autoplay="true"
                   data-loop="true"
                   data-wf-ignore="true"
@@ -1128,22 +1176,18 @@ export default function Header() {
                 >
                   <video
                     id="3a3f9703-a6bc-ad70-d75a-a01314b89fbc-video"
-                    autoPlay=""
-                    loop=""
-                    style='background-image:url("https://assets-global.website-files.com/625c39b93541414104a1d654/628d236d0626895c9b65b3e1_media2-poster-00001.jpg")'
-                    muted=""
-                    playsInline=""
+                    style={{
+                      backgroundImage:
+                        'url("https://assets-global.website-files.com/625c39b93541414104a1d654/628d236d0626895c9b65b3e1_media2-poster-00001.jpg")',
+                    }}
+                    ref={videoOtherCase2Ref}
+                    muted
+                    preload="auto"
+                    loop
                     data-wf-ignore="true"
                     data-object-fit="cover"
                   >
-                    <source
-                      src="https://assets-global.website-files.com/625c39b93541414104a1d654/628d236d0626895c9b65b3e1_media2-transcode.mp4"
-                      data-wf-ignore="true"
-                    />
-                    <source
-                      src="https://assets-global.website-files.com/625c39b93541414104a1d654/628d236d0626895c9b65b3e1_media2-transcode.webm"
-                      data-wf-ignore="true"
-                    />
+                    <source src={videoOtherCase2} data-wf-ignore="true" />
                   </video>
                 </div>
               </div>
@@ -1156,8 +1200,6 @@ export default function Header() {
             <div className="solution-card _w-30">
               <div className="img-holder solution-img solution-6 square">
                 <div
-                  data-poster-url="https://assets-global.website-files.com/625c39b93541414104a1d654/6299aa05d0f8473012c30bdd_icon 6-poster-00001.jpg"
-                  data-video-urls="https://assets-global.website-files.com/625c39b93541414104a1d654/6299aa05d0f8473012c30bdd_icon 6-transcode.mp4,https://assets-global.website-files.com/625c39b93541414104a1d654/6299aa05d0f8473012c30bdd_icon 6-transcode.webm"
                   data-autoplay="true"
                   data-loop="true"
                   data-wf-ignore="true"
@@ -1166,22 +1208,19 @@ export default function Header() {
                 >
                   <video
                     id="3d98270e-559e-e9d4-81bb-a642a1a16275-video"
-                    autoPlay=""
-                    loop=""
-                    style='background-image:url("https://assets-global.website-files.com/625c39b93541414104a1d654/6299aa05d0f8473012c30bdd_icon 6-poster-00001.jpg")'
-                    muted=""
+                    style={{
+                      backgroundImage:
+                        'url("https://assets-global.website-files.com/625c39b93541414104a1d654/6299aa05d0f8473012c30bdd_icon 6-poster-00001.jpg")',
+                    }}
+                    muted
+                    preload="auto"
+                    loop
+                    ref={videoOtherCase3Ref}
                     playsInline=""
                     data-wf-ignore="true"
                     data-object-fit="cover"
                   >
-                    <source
-                      src="https://assets-global.website-files.com/625c39b93541414104a1d654/6299aa05d0f8473012c30bdd_icon 6-transcode.mp4"
-                      data-wf-ignore="true"
-                    />
-                    <source
-                      src="https://assets-global.website-files.com/625c39b93541414104a1d654/6299aa05d0f8473012c30bdd_icon 6-transcode.webm"
-                      data-wf-ignore="true"
-                    />
+                    <source src={videoOtherCase3} data-wf-ignore="true" />
                   </video>
                 </div>
               </div>
@@ -1194,8 +1233,6 @@ export default function Header() {
             <div className="solution-card _w-30">
               <div className="img-holder solution-img solution-4 square">
                 <div
-                  data-poster-url="https://assets-global.website-files.com/625c39b93541414104a1d654/628d2336b69ec4db0af77cb6_commerce2-poster-00001.jpg"
-                  data-video-urls="https://assets-global.website-files.com/625c39b93541414104a1d654/628d2336b69ec4db0af77cb6_commerce2-transcode.mp4,https://assets-global.website-files.com/625c39b93541414104a1d654/628d2336b69ec4db0af77cb6_commerce2-transcode.webm"
                   data-autoplay="true"
                   data-loop="true"
                   data-wf-ignore="true"
@@ -1204,22 +1241,18 @@ export default function Header() {
                 >
                   <video
                     id="3832c896-a63a-7151-317d-e6c474c6b0d0-video"
-                    autoPlay=""
-                    loop=""
-                    style='background-image:url("https://assets-global.website-files.com/625c39b93541414104a1d654/628d2336b69ec4db0af77cb6_commerce2-poster-00001.jpg")'
-                    muted=""
-                    playsInline=""
+                    style={{
+                      backgroundImage:
+                        'url("https://assets-global.website-files.com/625c39b93541414104a1d654/628d2336b69ec4db0af77cb6_commerce2-poster-00001.jpg")',
+                    }}
+                    muted
+                    preload="auto"
+                    loop
+                    ref={videoOtherCase4Ref}
                     data-wf-ignore="true"
                     data-object-fit="cover"
                   >
-                    <source
-                      src="https://assets-global.website-files.com/625c39b93541414104a1d654/628d2336b69ec4db0af77cb6_commerce2-transcode.mp4"
-                      data-wf-ignore="true"
-                    />
-                    <source
-                      src="https://assets-global.website-files.com/625c39b93541414104a1d654/628d2336b69ec4db0af77cb6_commerce2-transcode.webm"
-                      data-wf-ignore="true"
-                    />
+                    <source src={videoOtherCase4} data-wf-ignore="true" />
                   </video>
                 </div>
               </div>
@@ -1232,8 +1265,6 @@ export default function Header() {
             <div className="solution-card _w-30">
               <div className="img-holder solution-img solution-5 square">
                 <div
-                  data-poster-url="https://assets-global.website-files.com/625c39b93541414104a1d654/6299a997b5e99d284fa14595_icon 4-poster-00001.jpg"
-                  data-video-urls="https://assets-global.website-files.com/625c39b93541414104a1d654/6299a997b5e99d284fa14595_icon 4-transcode.mp4,https://assets-global.website-files.com/625c39b93541414104a1d654/6299a997b5e99d284fa14595_icon 4-transcode.webm"
                   data-autoplay="true"
                   data-loop="true"
                   data-wf-ignore="true"
@@ -1242,22 +1273,19 @@ export default function Header() {
                 >
                   <video
                     id="fcfdf8d1-5343-0479-665a-af4d5af16564-video"
-                    autoPlay=""
-                    loop=""
-                    style='background-image:url("https://assets-global.website-files.com/625c39b93541414104a1d654/6299a997b5e99d284fa14595_icon 4-poster-00001.jpg")'
-                    muted=""
+                    style={{
+                      backgroundImage:
+                        'url("https://assets-global.website-files.com/625c39b93541414104a1d654/6299a997b5e99d284fa14595_icon 4-poster-00001.jpg")',
+                    }}
+                    ref={videoOtherCase5Ref}
+                    muted
+                    preload="auto"
+                    loop
                     playsInline=""
                     data-wf-ignore="true"
                     data-object-fit="cover"
                   >
-                    <source
-                      src="https://assets-global.website-files.com/625c39b93541414104a1d654/6299a997b5e99d284fa14595_icon 4-transcode.mp4"
-                      data-wf-ignore="true"
-                    />
-                    <source
-                      src="https://assets-global.website-files.com/625c39b93541414104a1d654/6299a997b5e99d284fa14595_icon 4-transcode.webm"
-                      data-wf-ignore="true"
-                    />
+                    <source src={videoOtherCase5} data-wf-ignore="true" />
                   </video>
                   <div className="w-video w-embed"></div>
                 </div>
@@ -1269,75 +1297,501 @@ export default function Header() {
               </p>
             </div>
           </div>
-          <div className="div-block-4 skale-stats-container hide">
+        </div>
+        <div className="sticky-gap">
+          <div className="container mb-64 mt-0">
+            <h2 className="c-h2 left-align mb-0 p-r v2 smaller mb-24 center">Start Building</h2>
+            <p className="c-p centered max-w-700 p-hero mb-0">
+              Build with simple, powerful APIs and SDKs. Access native tools to drive innovative gas
+              free experiences. Connect to start your project, expand with SKALE, or build your own
+              chain.
+              <br />
+            </p>
+            <div className="div-block-346 center">
+              <a
+                href="#"
+                target="noreferrer"
+                className="button-2 button-6 hero-btn hero-x v2 white-btn _w-100 w-button"
+              >
+                Start Building
+              </a>
+              <a
+                href="#"
+                target="noreferrer"
+                className="button-2 button-6 hero-btn hero-x v2 invert-bg _w-100 w-button"
+              >
+                Get in Touch
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="div-block-56-copy">
+          <img src="./img/other-blockchain.png" loading="lazy" alt="" className="image-25-copy" />
+          <div className="container tech center-container vertical-padding-container">
+            <h2 className="c-h2 no-m left-align mob-left ch-s4-h-v4 max-w-600">
+              SKALE Fixed Cost Structure vs. Other Blockchains
+            </h2>
+            <p className="c-p centered max-w-700 mt-12 mb-24 mob-left mb-0">
+              SKALE has a forward-looking architecture that was specifically built to eliminate the
+              burden of gas fees and create a better user experience. Developers and dApps pay chain
+              fees instead of users paying gas fees on individual transactions. Validators are then
+              rewarded monthly by performance, rather than per block.
+            </p>
+            <div className="scale-network-wrap">
+              <img
+                src="./img/network-cogestion-mobile.png"
+                loading="lazy"
+                data-w-id="3ce6b579-89ff-6173-09ae-80880f6ae253"
+                sizes="100vw"
+                alt=""
+                className="image-259"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="div-block-56">
+          <img
+            className="image-25"
+            src="./img/planet_moon.png"
+            alt=""
+            sizes="(max-width: 479px) 100vw, 350px"
+            loading="lazy"
+          />
+          <div className="container tech center-container">
+            <h2 className="c-h2 no-m left-align mob-left ch-s4-h-v4 max-w-600">How SKALE Works</h2>
+            <h2 className="heading-3 scaling-sub-title center light-text tech v3 text-center">
+              Harmonizing Speed, Security, and Decentralization
+            </h2>
+            <p className="c-p centered max-w-700 mt-12 mb-24 mob-left mb-0">
+              Advanced cryptography combined with pooled security offers speed and decentralization
+              without sacrificing security, enabling developers to provide a fast and free user
+              experience.
+            </p>
+            <div className="w-layout-grid grid-5 mobile-grid-h-scroll">
+              <div
+                id="w-node-dc4a63f8-9f85-3a02-375f-d37c23dd719b-eddc2eca"
+                className="div-block-6 tech-works-card scroll-item"
+              >
+                <h4 className="c-h3 left-align no-m">
+                  Virtualized subnodes &amp; decentralized blockchain
+                </h4>
+              </div>
+              <div
+                id="w-node-dc4a63f8-9f85-3a02-375f-d37c23dd719e-eddc2eca"
+                className="div-block-6 tech-works-card scroll-item"
+              >
+                <h4 className="c-h3 left-align no-m">Ethereum-native chain orchestration method</h4>
+              </div>
+              <div
+                id="w-node-dc4a63f8-9f85-3a02-375f-d37c23dd71a1-eddc2eca"
+                className="div-block-6 tech-works-card scroll-item"
+              >
+                <h4 className="c-h3 left-align no-m">10M+ transactions per day per chain</h4>
+              </div>
+              <div
+                id="w-node-dc4a63f8-9f85-3a02-375f-d37c23dd71a4-eddc2eca"
+                className="div-block-6 tech-works-card scroll-item"
+              >
+                <h4 className="c-h3 left-align no-m">High-performing pooled validation model</h4>
+              </div>
+              <div
+                id="w-node-dc4a63f8-9f85-3a02-375f-d37c23dd71a7-eddc2eca"
+                className="div-block-6 tech-works-card scroll-item"
+              >
+                <h4 className="c-h3 left-align no-m">
+                  Secured by random &amp; regular node rotation
+                </h4>
+              </div>
+              <div
+                id="w-node-dc4a63f8-9f85-3a02-375f-d37c23dd71aa-eddc2eca"
+                className="div-block-6 tech-works-card scroll-item"
+              >
+                <h4 className="c-h3 left-align no-m">
+                  Easily deploy Ethereum-based smart contracts{' '}
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="div-block-77">
+          <div className="container no-flex">
+            <h2 className="c-h2 mb-0 left-align">The Tech Behind SKALE</h2>
+            <div className="w-layout-grid grid-6">
+              <div
+                id="w-node-e5fa6630-765b-3e74-d1d2-c0b3f2f1ef5d-eddc2eca"
+                className="div-block-6 about-kit vertical flex-left"
+              >
+                <div className="div-block-18">
+                  <img
+                    src="./img/6289216f50f59f6ddf538d58_nodes1.svg"
+                    loading="lazy"
+                    alt=""
+                    className="tech-icon"
+                  />
+                </div>
+                <h4 className="c-h3 left-align mt-24 mb-v2-h">Leaderless BFT&nbsp;Consensus </h4>
+                <p className="c-p mob-left">
+                  SKALE's block creation uses a variant of ABBA protocol, limiting subnode downtime
+                  by detecting slow links in its consensus model.
+                </p>
+              </div>
+              <div className="div-block-6 about-kit vertical flex-left">
+                <div className="div-block-18">
+                  <img src="./img/journey1.svg" loading="lazy" alt="" className="tech-icon" />
+                </div>
+                <h4 className="c-h3 left-align mt-24 mb-v2-h">
+                  Interchain Messaging: BLS Threshold Signatures
+                </h4>
+                <p className="c-p mob-left">
+                  Virtualized subnodes validate cross-chain transactions using group signatures once
+                  published to Ethereum mainnet.
+                </p>
+              </div>
+              <div className="div-block-6 about-kit vertical flex-left">
+                <div className="div-block-18">
+                  <img src="./img/blockchain1.svg" loading="lazy" alt="" className="tech-icon" />
+                </div>
+                <h4 className="c-h3 left-align mt-24 mb-v2-h">Node Monitoring</h4>
+                <p className="c-p mob-left">
+                  Each SKALE Chain's node monitoring service tracks others' performance, measuring
+                  uptime and latency by regularly pinging and logging peer nodes.
+                </p>
+              </div>
+            </div>
+            <img className="image-27" src="./img/rocket.png" alt="" loading="lazy" />
+          </div>
+        </div>
+        <div className="div-block-78">
+          <img
+            className="image-70"
+            src="./img/planet.png"
+            alt=""
+            sizes="(max-width: 991px) 100vw, 250px"
+            loading="lazy"
+          />
+          <img
+            className="image-25 second"
+            src="./img/planet_2.png"
+            alt=""
+            sizes="(max-width: 479px) 100vw, 350px"
+            loading="lazy"
+          />
+          <div className="container performance per-container">
+            <div className="div-block-19">
+              <h2 className="c-h2 font-medium contra-v2">
+                Containerized Subnodes Provide Unparalleled Performance
+              </h2>
+              <p className="c-p centered mob-left">
+                A unique containerized subnode structure unlocks enterprise-grade performance and
+                offers dApp developers options on par with centralized systems, including
+                elasticity, configurability, and modularity.
+              </p>
+            </div>
+            <div className="columns-13 w-row">
+              <div className="column-25 hc-11 w-col w-col-6 w-col-medium-6 w-col-small-small-stack">
+                <div className="div-block-20">
+                  <img
+                    src="./img/Group44575.png"
+                    loading="lazy"
+                    sizes="(max-width: 479px) 90vw, (max-width: 767px) 92vw, 45vw"
+                    alt=""
+                    className="subnode-vector"
+                  />
+                </div>
+              </div>
+              <div className="column-11 hc-12 w-col w-col-6 w-col-medium-6 w-col-small-small-stack">
+                <h4 className="c-h3 left-align contra-h">
+                  Extremely Modular &amp; Customizable
+                  <br />
+                  Fast Transactions Per Second
+                  <br />
+                  Rapid Blocktimes &amp; Near-Instant Finality
+                  <br />
+                  Mathematically Provable Consensus
+                </h4>
+              </div>
+            </div>
+            <div className="columns-13 reverse w-row">
+              <div className="column-12 hc-12 w-col w-col-6">
+                <h4 className="c-h2 left-align font-v2 mt-24">Security Protocol</h4>
+                <h4 className="c-h3 left-align">Pooled Validation Model</h4>
+                <p className="c-p">
+                  Validator nodes are assigned and randomly rotated to SKALE chains by a mainnet
+                  contract. Nodes will be removed from and added to one or more chains on a
+                  non-deterministic schedule. This revolving process of random node rotation enables
+                  every configurable blockchain to leverage the security pool of the entire network
+                  on behalf of each chain.
+                </p>
+              </div>
+              <div className="column-11 reverse flex-align-center hc-11 w-col w-col-6">
+                <div className="div-block-20">
+                  <img
+                    src="./img/Group44889.png"
+                    loading="lazy"
+                    sizes="100vw"
+                    alt=""
+                    className="image-243"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="columns-13 w-row">
+              <div className="column-12 flex-align-center hc-11 w-col w-col-6">
+                <div className="div-block-20">
+                  <img
+                    src="./img/Group44887.png"
+                    loading="lazy"
+                    sizes="(max-width: 479px) 90vw, (max-width: 767px) 92vw, 45vw"
+                    alt=""
+                    className="subnode-vector"
+                  />
+                </div>
+              </div>
+              <div className="column-11 hc-12 w-col w-col-6">
+                <h4 className="c-h2 left-align font-v2 mt-24">Node Architecture</h4>
+                <h4 className="c-h3 left-align">Containerized Validator Nodes</h4>
+                <p className="c-p">
+                  The virtualized subnodes are supported by an innovative containerized architecture
+                  that provides industrial-grade performance for decentralized application
+                  developers. SKALE's high performance and flexibility come from leveraging the
+                  resources of the entire network for each independent chain.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="div-block-142">
+          <img
+            src="./img/telescope.png"
+            loading="lazy"
+            sizes="100vw"
+            alt=""
+            className="image-114"
+          />
+          <div className="div-block-143">
+            <h2 className="c-h2">Top SKALE Supporters</h2>
+            <div className="div-block-144 toss">
+              <div className="w-dyn-list">
+                <div role="list" className="collection-list-6 w-dyn-items">
+                  {topCompanies.map((supportCompany) => (
+                    <div key={supportCompany.id} role="listitem" className="w-dyn-item">
+                      <div className="div-block-181">
+                        <div className="div-block-345">
+                          <img
+                            src={`./img/${supportCompany.image}`}
+                            loading="lazy"
+                            alt=""
+                            className="support-logo"
+                          />
+                        </div>
+                        <div className="supporter-nam">{supportCompany.name}</div>
+                        <a
+                          href={supportCompany.link}
+                          target="noreferrer"
+                          className="link-block-16 link w-inline-block"
+                        ></a>
+                        <link rel="prerender" href="https://www.acrewcapital.com" />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="div-block-42 build-on-skale-container">
+          <div className="container build-container home v2 py-0 mob-left">
             <img
-              src="https://assets-global.website-files.com/625c39b93541414104a1d654/627367ed395deab0416c01c9_blur-logo.svg"
+              src="./img/logo-3d.png"
               loading="lazy"
               alt=""
-              className="image-17 skale-stats-left-logo"
+              className="image-19 build-skale-logo"
             />
-            <img
-              src="https://assets-global.website-files.com/625c39b93541414104a1d654/627367ed395deab0416c01c9_blur-logo.svg"
-              loading="lazy"
-              alt=""
-              className="image-18 skale-stats-right-logo"
-            />
-            <div className="div-block-5">
-              <h2 className="heading-3 stat-head black">SKALE Stats</h2>
-              <div className="w-layout-grid grid">
-                <div id="w-node-_093ff125-e1dd-1c47-542c-ca84ae8b5d9c-eddc2eca">
-                  <h5
-                    id="w-node-_27c3efdd-8a42-eeeb-4b22-e6877c0b401f-eddc2eca"
-                    className="h5 black"
-                  >
-                    2,500
-                  </h5>
-                  <p className="paragraph p black">Transaction per second</p>
+            <div className="columns-21 w-row">
+              <div className="skale-info w-col w-col-6">
+                <h2 className="heading-3 build-title left-title build-2 mob-left">
+                  Build on SKALE
+                </h2>
+                <p className="paragraph p build-desc build-2 mob-left">
+                  The SKALE Innovator Program for developers includes grants, consulting, Marketing
+                  &amp;&nbsp;PR, engineering support, QA support, and investor introductions.
+                </p>
+                <a
+                  href="https://form.typeform.com/to/q91LBl?utm_source=website"
+                  data-tf-hidden="utm_source=xxxxx,utm_medium=xxxxx,utm_campaign=xxxxx,utm_term=xxxxx,utm_content=xxxxx"
+                  data-tf-popup="q91LBl"
+                  data-tf-iframe-props="title=Innovator Program - short version"
+                  data-tf-medium="snippet"
+                  target="noreferrer"
+                  className="button-2 build-skale-btn mob-left w-button"
+                >
+                  Apply to the Innovator Program
+                </a>
+              </div>
+              <div className="column-40 w-col w-col-6"></div>
+            </div>
+          </div>
+        </div>
+        <div className="footer">
+          <div className="container footer-container">
+            <div className="columns-5 footer-newsletter-container w-row">
+              <div className="footer-newsletter w-col w-col-5 w-col-stack">
+                <div className="newsletter-container">
+                  <img src="./img/logo-footer.svg" loading="lazy" alt="" className="image-2" />
+                  <ul role="list" className="list-2 left-list w-list-unstyled">
+                    <li>
+                      <a
+                        href="https://github.com/skalenetwork"
+                        target="noreferrer"
+                        className="w-inline-block"
+                      >
+                        <img
+                          src="https://assets-global.website-files.com/625c39b93541414104a1d654/625c8d419181da2418a66b2d_github.svg"
+                          loading="lazy"
+                          alt=""
+                          className="image-3"
+                        />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://discord.com/invite/gM5XBy6"
+                        target="noreferrer"
+                        className="w-inline-block"
+                      >
+                        <img
+                          src="https://assets-global.website-files.com/625c39b93541414104a1d654/625c8d4290b5f0189929d637_discord.svg"
+                          loading="lazy"
+                          alt=""
+                          className="image-3"
+                        />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://twitter.com/SkaleNetwork"
+                        target="noreferrer"
+                        className="w-inline-block"
+                      >
+                        <img
+                          src="https://assets-global.website-files.com/625c39b93541414104a1d654/625c8d416d89770f92cd01e2_twitter.svg"
+                          loading="lazy"
+                          alt=""
+                          className="image-3"
+                        />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://form.typeform.com/to/sd38Fy?utm_source=website"
+                        className="w-inline-block"
+                      >
+                        <img
+                          src="https://assets-global.website-files.com/625c39b93541414104a1d654/6294b5a90a9ffe8e79e52115_Group%2037323.svg"
+                          loading="lazy"
+                          alt=""
+                          className="image-3"
+                        />
+                      </a>
+                    </li>
+                  </ul>
                 </div>
-                <div id="w-node-cb1aa167-4319-fad6-5a46-2e4ecf9a6931-eddc2eca">
-                  <h5
-                    id="w-node-cb1aa167-4319-fad6-5a46-2e4ecf9a6932-eddc2eca"
-                    className="h5 black"
+              </div>
+              <div className="column-23 footer-newsletter w-col w-col-7 w-col-stack">
+                <h5 className="heading-4 footer-newsletter">Subscribe to the SKALE newsletter</h5>
+                <div className="form-block-2 hide w-form">
+                  <form
+                    id="email-form"
+                    name="email-form"
+                    data-name="Email Form"
+                    method="get"
+                    data-wf-page-id="6555bf604f19ae6eeddc2eca"
+                    data-wf-element-id="43828203-e840-2f8f-f1ef-1b4e47cb34a5"
+                    aria-label="Email Form"
                   >
-                    100,000,000,000
-                  </h5>
-                  <p className="paragraph p black">Total transactions</p>
+                    <div className="div-block-41">
+                      <input
+                        className="text-field-2 footer-newsletter-input w-input"
+                        maxLength="256"
+                        name="email-2"
+                        data-name="Email 2"
+                        placeholder="Type your email address"
+                        type="email"
+                        id="email-2"
+                        value={email}
+                        onChange={handleInputChange}
+                      />
+                      <a
+                        onClick={handleSubmit}
+                        className="button-3 newsletter-btn footer-newsletter-btn w-button"
+                      >
+                        Submit
+                      </a>
+                    </div>
+                  </form>
+                  {!isFailFormatEmail && !isRequiredEmail && (
+                    <div
+                      className="message w-form-done"
+                      tabIndex="-1"
+                      role="region"
+                      aria-label="Email Form success"
+                    >
+                      <div>We will send the latest updates to your Email</div>
+                    </div>
+                  )}
+                  {isRequiredEmail && (
+                    <div
+                      className="message w-form-fail"
+                      tabIndex="-1"
+                      role="region"
+                      aria-label="Email Form failure"
+                    >
+                      <div>Please complete this required field.</div>
+                    </div>
+                  )}
+                  {isFailFormatEmail && (
+                    <div
+                      className="message w-form-fail"
+                      tabIndex="-1"
+                      role="region"
+                      aria-label="Email Form failure"
+                    >
+                      <div>Email must be formatted correctly.</div>
+                    </div>
+                  )}
                 </div>
-                <div id="w-node-_41dafc5d-968f-fca8-36f4-1c8c2e1bcd16-eddc2eca">
-                  <h5
-                    id="w-node-_41dafc5d-968f-fca8-36f4-1c8c2e1bcd17-eddc2eca"
-                    className="h5 black"
-                  >
-                    0.00025
-                  </h5>
-                  <p className="paragraph p black">Avg cost per transaction</p>
+                <div className="flex-row align-start">
+                  <div className="flex-grow"></div>
                 </div>
-                <div id="w-node-c7272309-dc1d-b40b-9d25-740b528eb794-eddc2eca">
-                  <h5
-                    id="w-node-c7272309-dc1d-b40b-9d25-740b528eb795-eddc2eca"
-                    className="h5 black"
-                  >
-                    152
-                  </h5>
-                  <p className="paragraph p black">Validator nodes</p>
-                </div>
-                <div id="w-node-_80026f7d-81f3-47c7-a614-618763411e91-eddc2eca">
-                  <h5
-                    id="w-node-_80026f7d-81f3-47c7-a614-618763411e92-eddc2eca"
-                    className="h5 black"
-                  >
-                    $1B TVL
-                  </h5>
-                  <p className="paragraph p black">Staking</p>
-                </div>
-                <div id="w-node-_5e799cfa-51cc-101d-c3a2-694c617632ff-eddc2eca">
-                  <h5
-                    id="w-node-_5e799cfa-51cc-101d-c3a2-694c61763300-eddc2eca"
-                    className="h5 black"
-                  >
-                    40+
-                  </h5>
-                  <p className="paragraph p black">Ecosystem partners</p>
+              </div>
+            </div>
+            <div className="columns-17 mt-16 w-row">
+              <div className="column-30 w-col w-col-5 w-col-stack">
+                <h6 className="heading-6 main-copyright">© 2018–2023 N.O.D.E. Anstalt</h6>
+              </div>
+              <div className="column-41 w-col w-col-7 w-col-stack">
+                <div className="flex-row footer-nav-container">
+                  <a href="#" className="link-block-4 w-inline-block">
+                    <h6 className="heading-7 footer-link-title">Network</h6>
+                  </a>
+                  <a href="#" className="link-block-4 w-inline-block">
+                    <h6 className="heading-7 footer-link-title">Stats</h6>
+                  </a>
+                  <a href="#" className="link-block-6 w-inline-block">
+                    <h6 className="heading-7 footer-link-title">Developers</h6>
+                  </a>
+                  <a href="#" className="link-block-6 w-inline-block">
+                    <h6 className="heading-7 footer-link-title">Blog</h6>
+                  </a>
+                  <a href="#" className="link-block-7 w-inline-block">
+                    <h6 className="heading-7 footer-link-title">Community</h6>
+                  </a>
+                  <a href="#" className="link-block-8 w-inline-block">
+                    <h6 className="heading-7 footer-link-title">About</h6>
+                  </a>
+                  <a href="#" className="link-block-6 w-inline-block">
+                    <h6 className="heading-7 footer-link-title">Security</h6>
+                  </a>
                 </div>
               </div>
             </div>

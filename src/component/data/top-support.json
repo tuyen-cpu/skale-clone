@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "name": "Acrew Capital",
+    "link": "#",
+    "image": "AcrewCapital.png"
+  },
+  {
+    "id": 2,
+    "name": "Arrington Capital",
+    "link": "#",
+    "image": "ArringtonCapital.png"
+  },
+  {
+    "id": 3,
+    "name": "Blockchange",
+    "link": "#",
+    "image": "Blockchange.png"
+  },
+  {
+    "id": 4,
+    "name": "BoostVC",
+    "link": "#",
+    "image": "BoostVC.svg"
+  },
+  {
+    "id": 5,
+    "name": "Cambrian",
+    "link": "#",
+    "image": "Cambrian.png"
+  },
+  {
+    "id": 6,
+    "name": "Canaan",
+    "link": "#",
+    "image": "Canaan.svg"
+  },
+  {
+    "id": 7,
+    "name": "ConsenSys Ventures",
+    "link": "#",
+    "image": "ConsenSysVentures.png"
+  },
+  {
+    "id": 8,
+    "name": "DTC Capital",
+    "link": "#",
+    "image": "DTCCapital.png"
+  },
+  {
+    "id": 9,
+    "name": "Floodgate",
+    "link": "#",
+    "image": "Floodgate.png"
+  },
+  {
+    "id": 10,
+    "name": "Galaxy",
+    "link": "#",
+    "image": "Galaxy.png"
+  },
+  {
+    "id": 11,
+    "name": "Hack VC",
+    "link": "#",
+    "image": "HackVC.png"
+  },
+  {
+    "id": 12,
+    "name": "Hashed",
+    "link": "#",
+    "image": "Hashed.png"
+  },
+  {
+    "id": 13,
+    "name": "Hashkey",
+    "link": "#",
+    "image": "Hashkey.png"
+  },
+  {
+    "id": 14,
+    "name": "MW PARTNERS",
+    "link": "#",
+    "image": "MWPARTNERS.png"
+  },
+  {
+    "id": 15,
+    "name": "Multicoin Capital",
+    "link": "#",
+    "image": "MulticoinCapital.png"
+  },
+  {
+    "id": 16,
+    "name": "NGC Ventures",
+    "link": "#",
+    "image": "NGCVentures.png"
+  },
+  {
+    "id": 17,
+    "name": "Oyster Ventures",
+    "link": "#",
+    "image": "OysterVentures.png"
+  },
+  {
+    "id": 18,
+    "name": "Recruit",
+    "link": "#",
+    "image": "Recruit.svg"
+  },
+  {
+    "id": 19,
+    "name": "Signia",
+    "link": "#",
+    "image": "Signia.png"
+  },
+  {
+    "id": 20,
+    "name": "Spartan",
+    "link": "#",
+    "image": "Spartan.png"
+  },
+  {
+    "id": 21,
+    "name": "Wave Capital",
+    "link": "#",
+    "image": "WaveCapital.png"
+  },
+  {
+    "id": 23,
+    "name": "Winklevoss Capital",
+    "link": "#",
+    "image": "WinklevossCapital.png"
+  }
+]
