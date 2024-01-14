@@ -13,6 +13,8 @@ import supportCompanies from '../data/top-support.json'
 export default function Header() {
   const [topCompanies, setTopCompanies] = useState([...supportCompanies])
   const [isOpenSideBar, setOpenSideBar] = useState(false)
+  const [isSubNetWork, setSubNetWork] = useState(false)
+  const [isDevelop, setDevelop] = useState(false)
   const myvideo = useRef(null)
   const pumpTranscodevideo = useRef(null)
   const videoOtherCase1Ref = useRef(null)
@@ -24,6 +26,7 @@ export default function Header() {
   const [clicked, setClicked] = useState(false)
   const [isRequiredEmail, setRequiredEmail] = useState(false)
   const [isFailFormatEmail, setFailFormatEmail] = useState(false)
+  const [isSubmit, setSubmit] = useState(false)
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   const [totalTransaction, setTotalTransaction] = useState(1100000)
   useEffect(() => {
@@ -53,6 +56,7 @@ export default function Header() {
   }
 
   const handleSubmit = (event) => {
+    setSubmit(true)
     setFailFormatEmail(false)
     setRequiredEmail(false)
     event.preventDefault()
@@ -68,6 +72,9 @@ export default function Header() {
   }
   const numberWithCommas = (number) => {
     return number.toLocaleString('en-US')
+  }
+  const handlSideBar = () => {
+    setOpenSideBar(!isOpenSideBar)
   }
   return (
     <>
@@ -97,7 +104,15 @@ export default function Header() {
             data-doc-height="1"
           >
             <div className="container-2 w-container">
-              <a href="/" aria-current="page" className="link-block w-inline-block w--current">
+              <a
+                href="/"
+                aria-current="page"
+                className={`${
+                  isOpenSideBar
+                    ? 'link-block w-inline-block w--current opacity--fade'
+                    : 'link-block w-inline-block w--current'
+                }`}
+              >
                 <img
                   src="https://assets-global.website-files.com/625c39b93541414104a1d654/625c68f38c04ec14737f2ad8_svg-gobbler%20(3)%201.svg"
                   loading="lazy"
@@ -346,7 +361,7 @@ export default function Header() {
                             data-w-id="3ed42ae5-336c-8d71-d427-bd343829b4e3"
                             className="text-block-23"
                           >
-                            Developers
+                            Developers1
                           </div>
                         </a>
                         <div className="icon-6 w-icon-dropdown-toggle" aria-hidden="true"></div>
@@ -511,7 +526,7 @@ export default function Header() {
                   </a>
                 </li>
               </ul>
-              <div className="menu-button-2 w-nav-button">
+              <div className="menu-button-2 w-nav-button" onClick={handlSideBar}>
                 <Hamburger
                   toggled={isOpenSideBar}
                   toggle={setOpenSideBar}
@@ -522,7 +537,260 @@ export default function Header() {
                 />
               </div>
             </div>
-            <div className="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
+
+            <div
+              className={`${isOpenSideBar ? 'w-nav-overlay open' : 'w-nav-overlay'}`}
+              data-wf-ignore=""
+              id="w-nav-overlay-0"
+              style={{
+                height: '17316px',
+                // display: 'block',
+                width: '500px',
+              }}
+            >
+              <nav
+                role="navigation"
+                data-w-id="98d4d624-d2ed-bed3-9e88-7348d80df61a"
+                className="nav-menu w-nav-menu"
+                data-nav-menu-open=""
+                style={{
+                  height: '17106px',
+                  transform: 'translateX(0px)',
+                  transition: 'transform 400ms ease 0s',
+                  overflow: 'hidden',
+                }}
+              >
+                <div
+                  data-w-id="1c66a9f0-0c86-b29b-95d5-e8fff6af38a8"
+                  className="drawer-content"
+                  style={{
+                    transform:
+                      'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)',
+                    transformStyle: 'preserve-3d',
+                    opacity: 1,
+                    // display: `${isOpenSideBar ? 'block' : 'none'}`,
+                  }}
+                >
+                  <div className="text-block-7 mobile-menu-title">Menu</div>
+                  <div className="div-block-50 mobile-nav-container">
+                    <a
+                      href="/old-home"
+                      className="nav-link-2 w-nav-link w--nav-link-open"
+                      style={{ maxWidth: '1140px' }}
+                    >
+                      Home
+                    </a>
+                    <div
+                      data-hover="false"
+                      data-delay="0"
+                      className="dropdown w-dropdown w--nav-dropdown-open"
+                      style={{ maxWidth: '1140px' }}
+                    >
+                      <div
+                        className="dropdown-toggle-2 nav-link-2 dropdown-toggle-3 dropdown-toggle-4 dropdown-toggle-5 dropdown-toggle-6 dropdown-toggle-7 dropdown-toggle-8 dropdown-toggle-9 dropdown-toggle-10 navlink2 nav-link-2 w-dropdown-toggle w--nav-dropdown-toggle-open"
+                        id="w-dropdown-toggle-2"
+                        aria-controls="w-dropdown-list-2"
+                        aria-haspopup="menu"
+                        aria-expanded="false"
+                        role="button"
+                        tabIndex="0"
+                      >
+                        <a href="#" className="w-inline-block">
+                          <div
+                            data-w-id="02103a1c-2afd-ca29-1cf0-74da1c111e94"
+                            className="text-block-23"
+                          >
+                            Network
+                          </div>
+                        </a>
+                        <div
+                          onClick={() => {
+                            setSubNetWork(!isSubNetWork)
+                            setDevelop(!!isSubNetWork)
+                          }}
+                          className="icon-6 w-icon-dropdown-toggle"
+                          aria-hidden="true"
+                        ></div>
+                      </div>
+                      <nav
+                        className={`${
+                          isSubNetWork
+                            ? 'dropdown-list w-dropdown-list w--nav-dropdown-list-open w--open'
+                            : 'dropdown-list w-dropdown-list w--nav-dropdown-list-open'
+                        }`}
+                        id="w-dropdown-list-2"
+                        aria-labelledby="w-dropdown-toggle-2"
+                      >
+                        <a
+                          href="https://skale.space/stats"
+                          className="nav-link-2 sub-link v2 w-nav-link w--nav-link-open"
+                          tabIndex="0"
+                          style={{ maxWidth: '1140px' }}
+                        >
+                          Stats
+                        </a>
+                        <a
+                          href="/ecosystem"
+                          className="nav-link-2 sub-link v2 w-nav-link w--nav-link-open"
+                          tabIndex="0"
+                          style={{ maxWidth: '1140px' }}
+                        >
+                          Ecosystem
+                        </a>
+                        <a
+                          href="https://skale.space/network/#token"
+                          className="nav-link-2 sub-link v2 w-nav-link w--nav-link-open"
+                          tabIndex="0"
+                          style={{ maxWidth: '1140px' }}
+                        >
+                          Token
+                        </a>
+                      </nav>
+                    </div>
+                    <div
+                      data-hover="false"
+                      data-delay="0"
+                      className="dropdown-2 w-dropdown w--nav-dropdown-open"
+                      style={{ maxWidth: '1140px' }}
+                    >
+                      <div
+                        className="dropdown-toggle-2 nav-link-2 dropdown-toggle-3 dropdown-toggle-4 dropdown-toggle-5 dropdown-toggle-6 dropdown-toggle-7 dropdown-toggle-8 dropdown-toggle-9 dropdown-toggle-10 navlink2 nav-link-2 w-dropdown-toggle w--nav-dropdown-toggle-open"
+                        id="w-dropdown-toggle-3"
+                        aria-controls="w-dropdown-list-3"
+                        aria-haspopup="menu"
+                        aria-expanded="false"
+                        role="button"
+                        tabIndex="0"
+                      >
+                        <a href="https://skale.space/developers" className="w-inline-block">
+                          <div
+                            data-w-id="3ed42ae5-336c-8d71-d427-bd343829b4e3"
+                            className="text-block-23"
+                          >
+                            Developers
+                          </div>
+                        </a>
+                        <div
+                          onClick={() => {
+                            setDevelop(!isDevelop)
+                            setSubNetWork(!!isDevelop)
+                          }}
+                          className="icon-6 w-icon-dropdown-toggle"
+                          aria-hidden="true"
+                        ></div>
+                      </div>
+                      <nav
+                        className={`${
+                          isDevelop
+                            ? 'dropdown-list w-dropdown-list w--nav-dropdown-list-open w--open'
+                            : 'dropdown-list w-dropdown-list w--nav-dropdown-list-open'
+                        }`}
+                        id="w-dropdown-list-3"
+                        aria-labelledby="w-dropdown-toggle-3"
+                      >
+                        <a
+                          id="grantsClick"
+                          href="https://skale.space/developers/#grants"
+                          data-w-id="744e0b10-583d-79ec-0ac0-30fbaf6dd6a0"
+                          className="nav-link-2 drop-link menu-button-2 sub-link w-nav-link w--nav-link-open"
+                          tabIndex="0"
+                          style={{ maxWidth: '1140px' }}
+                        >
+                          Grants
+                        </a>
+                        <a
+                          id="validatorsLink"
+                          href="https://skale.space/developers/#validators"
+                          data-w-id="57b75670-419c-e653-6d5a-282b2fa8be6c"
+                          className="nav-link-2 drop-link menu-button-2 sub-link w-nav-link w--nav-link-open"
+                          tabIndex="0"
+                          style={{ maxWidth: '1140px' }}
+                        >
+                          Validators
+                        </a>
+                      </nav>
+                    </div>
+                    <a
+                      href="/blog"
+                      className="nav-link-2 w-nav-link w--nav-link-open"
+                      style={{ maxWidth: '1140px' }}
+                    >
+                      Blog
+                    </a>
+                    <a
+                      href="/community"
+                      className="nav-link-2 w-nav-link w--nav-link-open"
+                      style={{ maxWidth: '1140px' }}
+                    >
+                      Community
+                    </a>
+                    <a
+                      href="/about"
+                      className="nav-link-2 w-nav-link w--nav-link-open"
+                      style={{ maxWidth: '1140px' }}
+                    >
+                      About
+                    </a>
+                  </div>
+                  <div className="div-block-95 black-bg">
+                    <ul role="list" className="list-5 header-socials drawer-socials">
+                      <li className="list-item-8">
+                        <a
+                          href="https://form.typeform.com/to/sd38Fy?utm_source=website&amp;typeform-source=skale.space"
+                          className="header-social-links twitter w-inline-block"
+                        >
+                          <img
+                            src="https://assets-global.website-files.com/625c39b93541414104a1d654/628125fb64f151303be3318e_Message.svg"
+                            loading="lazy"
+                            width="20"
+                            alt=""
+                          />
+                        </a>
+                      </li>
+                      <li className="list-item-7">
+                        <a
+                          href="https://twitter.com/SkaleNetwork"
+                          target="noreferrer"
+                          className="header-social-links twitter w-inline-block"
+                        >
+                          <img
+                            src="https://assets-global.website-files.com/625c39b93541414104a1d654/628d02fe290acc2b8492caaf_logo-twitter%203.svg"
+                            loading="lazy"
+                            alt=""
+                          />
+                        </a>
+                      </li>
+                      <li className="list-item-6">
+                        <a
+                          href="http://skale.chat/"
+                          target="noreferrer"
+                          className="header-social-links w-inline-block"
+                        >
+                          <img
+                            src="https://assets-global.website-files.com/625c39b93541414104a1d654/62734bb8fdadb403a9cf6319_discord.svg"
+                            loading="lazy"
+                            alt=""
+                          />
+                        </a>
+                      </li>
+                      <li className="list-item-6">
+                        <a
+                          href="https://github.com/skalenetwork"
+                          target="noreferrer"
+                          className="header-social-links w-inline-block"
+                        >
+                          <img
+                            src="https://assets-global.website-files.com/625c39b93541414104a1d654/62734bb87c8e0802fff6dcab_github.svg"
+                            loading="lazy"
+                            alt=""
+                          />
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </div>
           </div>
         </div>
       </div>
@@ -644,7 +912,7 @@ export default function Header() {
                 <div className="div-block-328">
                   <div className="div-block-322">
                     <img
-                      src="./img/noun-eco-friendly.png"
+                      src="/img/noun-eco-friendly.png"
                       loading="lazy"
                       alt=""
                       className="image-244"
@@ -654,7 +922,7 @@ export default function Header() {
                   <a href="#" target="noreferrer" className="link-block-23 w-inline-block">
                     <div className="text-block-87">View Stats</div>
                     <img
-                      src="./img/Right-Up-Circle.svg"
+                      src="/img/Right-Up-Circle.svg"
                       loading="lazy"
                       alt=""
                       className="image-245"
@@ -699,7 +967,7 @@ export default function Header() {
           </div>
         </div>
         <div className="container">
-          <img className="image-15" src="./img/asteroid.png" alt="" sizes="100vw" loading="lazy" />
+          <img className="image-15" src="/img/asteroid.png" alt="" sizes="100vw" loading="lazy" />
           <h2 className="heading-3 center home left-align">
             <strong className="c-h2 left-align">
               Create a World-Class User Experience for Games, NFT&nbsp;Platforms, and Web3
@@ -751,7 +1019,7 @@ export default function Header() {
             </div>
           </div>
           <div className="div-block-74">
-            <img src="./img/f_saturn.png" loading="lazy" alt="" className="image-16 v2" />
+            <img src="/img/f_saturn.png" loading="lazy" alt="" className="image-16 v2" />
           </div>
         </div>
         <div className="container">
@@ -778,7 +1046,7 @@ export default function Header() {
                       <img
                         loading="lazy"
                         alt=""
-                        src="./img/Skale-Ballers-Banner.png"
+                        src="/img/Skale-Ballers-Banner.png"
                         className="div-block-3"
                       />
                     </div>
@@ -809,7 +1077,7 @@ export default function Header() {
                       <img
                         loading="lazy"
                         alt=""
-                        src="./img/Skale-Chain-Live.png"
+                        src="/img/Skale-Chain-Live.png"
                         className="div-block-3"
                       />
                     </div>
@@ -837,7 +1105,7 @@ export default function Header() {
                       <img
                         loading="lazy"
                         alt=""
-                        src="./img/year-in-review.png"
+                        src="/img/year-in-review.png"
                         className="div-block-3"
                       />
                     </div>
@@ -891,7 +1159,7 @@ export default function Header() {
             </div>
             <div className="column-11 reverse flex-align-center hc-11 w-col w-col-6 w-col-stack">
               <img
-                src="./img/Frame45585.png"
+                src="/img/Frame45585.png"
                 loading="lazy"
                 sizes="100vw"
                 alt=""
@@ -908,7 +1176,7 @@ export default function Header() {
               className="div-block-6 about-kit vertical flex-left no-pointer"
             >
               <div className="div-block-18 max-none">
-                <img src="./img/1_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
+                <img src="/img/1_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
               </div>
               <h4 className="c-h3 left-align mt-24 mb-v2-h">Zero Gas Fees</h4>
               <p className="c-p mob-left">
@@ -918,7 +1186,7 @@ export default function Header() {
             </div>
             <div className="div-block-6 about-kit vertical flex-left no-pointer">
               <div className="div-block-18 max-none">
-                <img src="./img/2_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
+                <img src="/img/2_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
               </div>
               <h4 className="c-h3 left-align mt-24 mb-v2-h">Game Changing Speed</h4>
               <p className="c-p mob-left">
@@ -931,7 +1199,7 @@ export default function Header() {
             </div>
             <div className="div-block-6 about-kit vertical flex-left no-pointer">
               <div className="div-block-18 max-none">
-                <img src="./img/3_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
+                <img src="/img/3_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
               </div>
               <h4 className="c-h3 left-align mt-24 mb-v2-h">Built-in Game Development Tools</h4>
               <p className="c-p mob-left">
@@ -941,7 +1209,7 @@ export default function Header() {
             </div>
             <div className="div-block-6 about-kit vertical flex-left no-pointer">
               <div className="div-block-18 max-none">
-                <img src="./img/4_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
+                <img src="/img/4_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
               </div>
               <h4 className="c-h3 left-align mt-24 mb-v2-h">Configure to Your Needs</h4>
               <p className="c-p mob-left">
@@ -954,14 +1222,14 @@ export default function Header() {
         <div className="div-block-78">
           <img
             className="image-70"
-            src="./img/planet.png"
+            src="/img/planet.png"
             alt=""
             sizes="(max-width: 991px) 100vw, 250px"
             loading="lazy"
           />
           <img
             className="image-25 second up"
-            src="./img/planet_2.png"
+            src="/img/planet_2.png"
             alt=""
             sizes="(max-width: 479px) 100vw, (max-width: 991px) 150px, 224px"
             loading="lazy"
@@ -1008,7 +1276,7 @@ export default function Header() {
             <div id="w-node-_086f26cc-095c-d7c9-517b-b3618762d65f-eddc2eca" className="div-block-6">
               <div className="div-block-347">
                 <img
-                  src="./img/StrayShot.png"
+                  src="/img/StrayShot.png"
                   loading="lazy"
                   sizes="(max-width: 479px) 100vw, (max-width: 991px) 85vw, 664.359375px"
                   alt=""
@@ -1022,7 +1290,7 @@ export default function Header() {
             </div>
             <div id="w-node-_086f26cc-095c-d7c9-517b-b3618762d665-eddc2eca" className="div-block-6">
               <div className="div-block-347">
-                <img src="./img/plane.png" loading="lazy" alt="" className="image-257" />
+                <img src="/img/plane.png" loading="lazy" alt="" className="image-257" />
               </div>
               <h4 className="c-h3 left-align mt-24">Untitled</h4>
               <p className="c-p mb-32 mob-left">
@@ -1032,7 +1300,7 @@ export default function Header() {
             <div id="w-node-_086f26cc-095c-d7c9-517b-b3618762d66b-eddc2eca" className="div-block-6">
               <div className="div-block-347">
                 <img
-                  src="./img/6555cbb412b967bc2243a05b.png"
+                  src="/img/6555cbb412b967bc2243a05b.png"
                   loading="lazy"
                   alt=""
                   className="image-257"
@@ -1071,7 +1339,7 @@ export default function Header() {
             <div className="column-11 reverse flex-align-center hc-11 w-col w-col-6 w-col-stack">
               <div className="div-block-20 _w-100">
                 <img
-                  src="./img/6555c3bcec563ca4d836a5e3.png"
+                  src="/img/6555c3bcec563ca4d836a5e3.png"
                   loading="lazy"
                   sizes="100vw"
                   alt=""
@@ -1083,7 +1351,7 @@ export default function Header() {
         </div>
         <div className="div-block-78">
           <img
-            src="./img/6555fba6453b5de7d86ea0e7.png"
+            src="/img/6555fba6453b5de7d86ea0e7.png"
             loading="lazy"
             alt=""
             className="image-70 left"
@@ -1095,7 +1363,7 @@ export default function Header() {
                 id="w-node-a157e035-4bdc-f010-4e6e-e0fa6cae90a3-eddc2eca"
                 className="div-block-6 vv"
               >
-                <img src="./img/Frame-1.svg" loading="lazy" alt="" className="image-255" />
+                <img src="/img/Frame-1.svg" loading="lazy" alt="" className="image-255" />
                 <h4 className="c-h3 left-align mt-24">Predictable Costs for High Throughput</h4>
                 <p className="c-p mb-32 mob-left">
                   AI applications require automated, high-volume transactions that are impossible
@@ -1106,7 +1374,7 @@ export default function Header() {
                 id="w-node-a157e035-4bdc-f010-4e6e-e0fa6cae90a8-eddc2eca"
                 className="div-block-6 vv"
               >
-                <img src="./img/Frame-2.svg" loading="lazy" alt="" className="image-255" />
+                <img src="/img/Frame-2.svg" loading="lazy" alt="" className="image-255" />
                 <h4 className="c-h3 left-align mt-24">AI/ML Execution within Smart Contracts</h4>
                 <p className="c-p mb-32 mob-left">
                   Run pre-trained AI models within a smart contract, creating a trustless
@@ -1117,7 +1385,7 @@ export default function Header() {
                 id="w-node-a157e035-4bdc-f010-4e6e-e0fa6cae90ad-eddc2eca"
                 className="div-block-6 vv"
               >
-                <img src="./img/Frame-3.svg" loading="lazy" alt="" className="image-255" />
+                <img src="/img/Frame-3.svg" loading="lazy" alt="" className="image-255" />
                 <h4 className="c-h3 left-align mt-24">Instant Finality and Zero MEV</h4>
                 <p className="c-p mb-32 mob-left">
                   Once a transaction is commenced, it immediately comes to finality, preventing
@@ -1326,7 +1594,7 @@ export default function Header() {
           </div>
         </div>
         <div className="div-block-56-copy">
-          <img src="./img/other-blockchain.png" loading="lazy" alt="" className="image-25-copy" />
+          <img src="/img/other-blockchain.png" loading="lazy" alt="" className="image-25-copy" />
           <div className="container tech center-container vertical-padding-container">
             <h2 className="c-h2 no-m left-align mob-left ch-s4-h-v4 max-w-600">
               SKALE Fixed Cost Structure vs. Other Blockchains
@@ -1339,7 +1607,7 @@ export default function Header() {
             </p>
             <div className="scale-network-wrap">
               <img
-                src="./img/network-cogestion-mobile.png"
+                src="/img/network-cogestion-mobile.png"
                 loading="lazy"
                 data-w-id="3ce6b579-89ff-6173-09ae-80880f6ae253"
                 sizes="100vw"
@@ -1352,7 +1620,7 @@ export default function Header() {
         <div className="div-block-56">
           <img
             className="image-25"
-            src="./img/planet_moon.png"
+            src="/img/planet_moon.png"
             alt=""
             sizes="(max-width: 479px) 100vw, 350px"
             loading="lazy"
@@ -1423,7 +1691,7 @@ export default function Header() {
               >
                 <div className="div-block-18">
                   <img
-                    src="./img/6289216f50f59f6ddf538d58_nodes1.svg"
+                    src="/img/6289216f50f59f6ddf538d58_nodes1.svg"
                     loading="lazy"
                     alt=""
                     className="tech-icon"
@@ -1437,7 +1705,7 @@ export default function Header() {
               </div>
               <div className="div-block-6 about-kit vertical flex-left">
                 <div className="div-block-18">
-                  <img src="./img/journey1.svg" loading="lazy" alt="" className="tech-icon" />
+                  <img src="/img/journey1.svg" loading="lazy" alt="" className="tech-icon" />
                 </div>
                 <h4 className="c-h3 left-align mt-24 mb-v2-h">
                   Interchain Messaging: BLS Threshold Signatures
@@ -1449,7 +1717,7 @@ export default function Header() {
               </div>
               <div className="div-block-6 about-kit vertical flex-left">
                 <div className="div-block-18">
-                  <img src="./img/blockchain1.svg" loading="lazy" alt="" className="tech-icon" />
+                  <img src="/img/blockchain1.svg" loading="lazy" alt="" className="tech-icon" />
                 </div>
                 <h4 className="c-h3 left-align mt-24 mb-v2-h">Node Monitoring</h4>
                 <p className="c-p mob-left">
@@ -1458,20 +1726,20 @@ export default function Header() {
                 </p>
               </div>
             </div>
-            <img className="image-27" src="./img/rocket.png" alt="" loading="lazy" />
+            <img className="image-27" src="/img/rocket.png" alt="" loading="lazy" />
           </div>
         </div>
         <div className="div-block-78">
           <img
             className="image-70"
-            src="./img/planet.png"
+            src="/img/planet.png"
             alt=""
             sizes="(max-width: 991px) 100vw, 250px"
             loading="lazy"
           />
           <img
             className="image-25 second"
-            src="./img/planet_2.png"
+            src="/img/planet_2.png"
             alt=""
             sizes="(max-width: 479px) 100vw, 350px"
             loading="lazy"
@@ -1491,7 +1759,7 @@ export default function Header() {
               <div className="column-25 hc-11 w-col w-col-6 w-col-medium-6 w-col-small-small-stack">
                 <div className="div-block-20">
                   <img
-                    src="./img/Group44575.png"
+                    src="/img/Group44575.png"
                     loading="lazy"
                     sizes="(max-width: 479px) 90vw, (max-width: 767px) 92vw, 45vw"
                     alt=""
@@ -1526,7 +1794,7 @@ export default function Header() {
               <div className="column-11 reverse flex-align-center hc-11 w-col w-col-6">
                 <div className="div-block-20">
                   <img
-                    src="./img/Group44889.png"
+                    src="/img/Group44889.png"
                     loading="lazy"
                     sizes="100vw"
                     alt=""
@@ -1539,7 +1807,7 @@ export default function Header() {
               <div className="column-12 flex-align-center hc-11 w-col w-col-6">
                 <div className="div-block-20">
                   <img
-                    src="./img/Group44887.png"
+                    src="/img/Group44887.png"
                     loading="lazy"
                     sizes="(max-width: 479px) 90vw, (max-width: 767px) 92vw, 45vw"
                     alt=""
@@ -1561,13 +1829,7 @@ export default function Header() {
           </div>
         </div>
         <div className="div-block-142">
-          <img
-            src="./img/telescope.png"
-            loading="lazy"
-            sizes="100vw"
-            alt=""
-            className="image-114"
-          />
+          <img src="/img/telescope.png" loading="lazy" sizes="100vw" alt="" className="image-114" />
           <div className="div-block-143">
             <h2 className="c-h2">Top SKALE Supporters</h2>
             <div className="div-block-144 toss">
@@ -1578,7 +1840,7 @@ export default function Header() {
                       <div className="div-block-181">
                         <div className="div-block-345">
                           <img
-                            src={`./img/${supportCompany.image}`}
+                            src={`/img/${supportCompany.image}`}
                             loading="lazy"
                             alt=""
                             className="support-logo"
@@ -1602,7 +1864,7 @@ export default function Header() {
         <div className="div-block-42 build-on-skale-container">
           <div className="container build-container home v2 py-0 mob-left">
             <img
-              src="./img/logo-3d.png"
+              src="/img/logo-3d.png"
               loading="lazy"
               alt=""
               className="image-19 build-skale-logo"
@@ -1637,7 +1899,7 @@ export default function Header() {
             <div className="columns-5 footer-newsletter-container w-row">
               <div className="footer-newsletter w-col w-col-5 w-col-stack">
                 <div className="newsletter-container">
-                  <img src="./img/logo-footer.svg" loading="lazy" alt="" className="image-2" />
+                  <img src="/img/logo-footer.svg" loading="lazy" alt="" className="image-2" />
                   <ul role="list" className="list-2 left-list w-list-unstyled">
                     <li>
                       <a
@@ -1729,7 +1991,7 @@ export default function Header() {
                       </a>
                     </div>
                   </form>
-                  {!isFailFormatEmail && !isRequiredEmail && (
+                  {isSubmit && !isFailFormatEmail && !isRequiredEmail && (
                     <div
                       className="message w-form-done"
                       tabIndex="-1"
