@@ -2268,6 +2268,15 @@ iframe {
     }
 }
 
+.link-block-16.link {
+    z-index: 2;
+    position: absolute;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+}
+
 /* normal */
 @media screen and (max-width: 991px) {
     .link-block {
