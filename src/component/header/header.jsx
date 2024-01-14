@@ -606,7 +606,7 @@ export default function Header() {
                         <div
                           onClick={() => {
                             setSubNetWork(!isSubNetWork)
-                            setDevelop(!!isSubNetWork)
+                            isDevelop && setDevelop(false)
                           }}
                           className="icon-6 w-icon-dropdown-toggle"
                           aria-hidden="true"
@@ -673,7 +673,7 @@ export default function Header() {
                         <div
                           onClick={() => {
                             setDevelop(!isDevelop)
-                            setSubNetWork(!!isDevelop)
+                            isSubNetWork && setSubNetWork(false)
                           }}
                           className="icon-6 w-icon-dropdown-toggle"
                           aria-hidden="true"
@@ -912,7 +912,7 @@ export default function Header() {
                 <div className="div-block-328">
                   <div className="div-block-322">
                     <img
-                      src="/img/noun-eco-friendly.png"
+                      src="./img/noun-eco-friendly.png"
                       loading="lazy"
                       alt=""
                       className="image-244"
@@ -922,7 +922,7 @@ export default function Header() {
                   <a href="#" target="noreferrer" className="link-block-23 w-inline-block">
                     <div className="text-block-87">View Stats</div>
                     <img
-                      src="/img/Right-Up-Circle.svg"
+                      src="./img/Right-Up-Circle.svg"
                       loading="lazy"
                       alt=""
                       className="image-245"
@@ -954,7 +954,7 @@ export default function Header() {
                     preload="auto"
                     loop
                     ref={pumpTranscodevideo}
-                    style={{ backgroundImage: 'url("/img/pump-poster-00001.jpg")' }}
+                    style={{ backgroundImage: 'url("./img/pump-poster-00001.jpg")' }}
                     playsInline=""
                     data-wf-ignore="true"
                     data-object-fit="cover"
@@ -967,7 +967,13 @@ export default function Header() {
           </div>
         </div>
         <div className="container">
-          <img className="image-15" src="/img/asteroid.png" alt="" sizes="100vw" loading="lazy" />
+          <img
+            className="image-15 planet-animation"
+            src="./img/asteroid.png"
+            alt=""
+            sizes="100vw"
+            loading="lazy"
+          />
           <h2 className="heading-3 center home left-align">
             <strong className="c-h2 left-align">
               Create a World-Class User Experience for Games, NFT&nbsp;Platforms, and Web3
@@ -1019,7 +1025,12 @@ export default function Header() {
             </div>
           </div>
           <div className="div-block-74">
-            <img src="/img/f_saturn.png" loading="lazy" alt="" className="image-16 v2" />
+            <img
+              src="./img/f_saturn.png"
+              loading="lazy"
+              alt=""
+              className="image-16 v2 planet-animation"
+            />
           </div>
         </div>
         <div className="container">
@@ -1046,7 +1057,7 @@ export default function Header() {
                       <img
                         loading="lazy"
                         alt=""
-                        src="/img/Skale-Ballers-Banner.png"
+                        src="./img/Skale-Ballers-Banner.png"
                         className="div-block-3"
                       />
                     </div>
@@ -1064,10 +1075,7 @@ export default function Header() {
                 </a>
               </div>
               <div role="listitem" className="no-padding w-dyn-item">
-                <a
-                  href="/blog/skale-chain-pricing-is-now-live-on-mainnet"
-                  className="post-link w-inline-block"
-                >
+                <a href="#" className="post-link w-inline-block">
                   <div
                     id="w-node-b34d7692-2f47-bdea-255d-042c8e9aec21-eddc2eca"
                     data-w-id="b34d7692-2f47-bdea-255d-042c8e9aec21"
@@ -1077,7 +1085,7 @@ export default function Header() {
                       <img
                         loading="lazy"
                         alt=""
-                        src="/img/Skale-Chain-Live.png"
+                        src="./img/Skale-Chain-Live.png"
                         className="div-block-3"
                       />
                     </div>
@@ -1105,7 +1113,7 @@ export default function Header() {
                       <img
                         loading="lazy"
                         alt=""
-                        src="/img/year-in-review.png"
+                        src="./img/year-in-review.png"
                         className="div-block-3"
                       />
                     </div>
@@ -1159,7 +1167,7 @@ export default function Header() {
             </div>
             <div className="column-11 reverse flex-align-center hc-11 w-col w-col-6 w-col-stack">
               <img
-                src="/img/Frame45585.png"
+                src="./img/Frame45585.png"
                 loading="lazy"
                 sizes="100vw"
                 alt=""
@@ -1176,7 +1184,7 @@ export default function Header() {
               className="div-block-6 about-kit vertical flex-left no-pointer"
             >
               <div className="div-block-18 max-none">
-                <img src="/img/1_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
+                <img src="./img/1_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
               </div>
               <h4 className="c-h3 left-align mt-24 mb-v2-h">Zero Gas Fees</h4>
               <p className="c-p mob-left">
@@ -1186,7 +1194,7 @@ export default function Header() {
             </div>
             <div className="div-block-6 about-kit vertical flex-left no-pointer">
               <div className="div-block-18 max-none">
-                <img src="/img/2_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
+                <img src="./img/2_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
               </div>
               <h4 className="c-h3 left-align mt-24 mb-v2-h">Game Changing Speed</h4>
               <p className="c-p mob-left">
@@ -1199,7 +1207,7 @@ export default function Header() {
             </div>
             <div className="div-block-6 about-kit vertical flex-left no-pointer">
               <div className="div-block-18 max-none">
-                <img src="/img/3_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
+                <img src="./img/3_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
               </div>
               <h4 className="c-h3 left-align mt-24 mb-v2-h">Built-in Game Development Tools</h4>
               <p className="c-p mob-left">
@@ -1209,7 +1217,7 @@ export default function Header() {
             </div>
             <div className="div-block-6 about-kit vertical flex-left no-pointer">
               <div className="div-block-18 max-none">
-                <img src="/img/4_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
+                <img src="./img/4_Frame.svg" loading="lazy" alt="" className="tech-icon small" />
               </div>
               <h4 className="c-h3 left-align mt-24 mb-v2-h">Configure to Your Needs</h4>
               <p className="c-p mob-left">
@@ -1221,15 +1229,15 @@ export default function Header() {
         </div>
         <div className="div-block-78">
           <img
-            className="image-70"
-            src="/img/planet.png"
+            className="image-70 planet-animation"
+            src="./img/planet.png"
             alt=""
             sizes="(max-width: 991px) 100vw, 250px"
             loading="lazy"
           />
           <img
-            className="image-25 second up"
-            src="/img/planet_2.png"
+            className="image-25 second up planet-animation"
+            src="./img/planet_2.png"
             alt=""
             sizes="(max-width: 479px) 100vw, (max-width: 991px) 150px, 224px"
             loading="lazy"
@@ -1276,7 +1284,7 @@ export default function Header() {
             <div id="w-node-_086f26cc-095c-d7c9-517b-b3618762d65f-eddc2eca" className="div-block-6">
               <div className="div-block-347">
                 <img
-                  src="/img/StrayShot.png"
+                  src="./img/StrayShot.png"
                   loading="lazy"
                   sizes="(max-width: 479px) 100vw, (max-width: 991px) 85vw, 664.359375px"
                   alt=""
@@ -1290,7 +1298,7 @@ export default function Header() {
             </div>
             <div id="w-node-_086f26cc-095c-d7c9-517b-b3618762d665-eddc2eca" className="div-block-6">
               <div className="div-block-347">
-                <img src="/img/plane.png" loading="lazy" alt="" className="image-257" />
+                <img src="./img/plane.png" loading="lazy" alt="" className="image-257" />
               </div>
               <h4 className="c-h3 left-align mt-24">Untitled</h4>
               <p className="c-p mb-32 mob-left">
@@ -1300,7 +1308,7 @@ export default function Header() {
             <div id="w-node-_086f26cc-095c-d7c9-517b-b3618762d66b-eddc2eca" className="div-block-6">
               <div className="div-block-347">
                 <img
-                  src="/img/6555cbb412b967bc2243a05b.png"
+                  src="./img/6555cbb412b967bc2243a05b.png"
                   loading="lazy"
                   alt=""
                   className="image-257"
@@ -1339,7 +1347,7 @@ export default function Header() {
             <div className="column-11 reverse flex-align-center hc-11 w-col w-col-6 w-col-stack">
               <div className="div-block-20 _w-100">
                 <img
-                  src="/img/6555c3bcec563ca4d836a5e3.png"
+                  src="./img/6555c3bcec563ca4d836a5e3.png"
                   loading="lazy"
                   sizes="100vw"
                   alt=""
@@ -1351,10 +1359,10 @@ export default function Header() {
         </div>
         <div className="div-block-78">
           <img
-            src="/img/6555fba6453b5de7d86ea0e7.png"
+            src="./img/6555fba6453b5de7d86ea0e7.png"
             loading="lazy"
             alt=""
-            className="image-70 left"
+            className="image-70 left planet-animation"
           />
           <div className="container">
             <h2 className="c-h2 left-align mb-0 p-r v2 smaller">AI-Optimized Features</h2>
@@ -1363,7 +1371,7 @@ export default function Header() {
                 id="w-node-a157e035-4bdc-f010-4e6e-e0fa6cae90a3-eddc2eca"
                 className="div-block-6 vv"
               >
-                <img src="/img/Frame-1.svg" loading="lazy" alt="" className="image-255" />
+                <img src="./img/Frame-1.svg" loading="lazy" alt="" className="image-255" />
                 <h4 className="c-h3 left-align mt-24">Predictable Costs for High Throughput</h4>
                 <p className="c-p mb-32 mob-left">
                   AI applications require automated, high-volume transactions that are impossible
@@ -1374,7 +1382,7 @@ export default function Header() {
                 id="w-node-a157e035-4bdc-f010-4e6e-e0fa6cae90a8-eddc2eca"
                 className="div-block-6 vv"
               >
-                <img src="/img/Frame-2.svg" loading="lazy" alt="" className="image-255" />
+                <img src="./img/Frame-2.svg" loading="lazy" alt="" className="image-255" />
                 <h4 className="c-h3 left-align mt-24">AI/ML Execution within Smart Contracts</h4>
                 <p className="c-p mb-32 mob-left">
                   Run pre-trained AI models within a smart contract, creating a trustless
@@ -1385,7 +1393,7 @@ export default function Header() {
                 id="w-node-a157e035-4bdc-f010-4e6e-e0fa6cae90ad-eddc2eca"
                 className="div-block-6 vv"
               >
-                <img src="/img/Frame-3.svg" loading="lazy" alt="" className="image-255" />
+                <img src="./img/Frame-3.svg" loading="lazy" alt="" className="image-255" />
                 <h4 className="c-h3 left-align mt-24">Instant Finality and Zero MEV</h4>
                 <p className="c-p mb-32 mob-left">
                   Once a transaction is commenced, it immediately comes to finality, preventing
@@ -1594,7 +1602,12 @@ export default function Header() {
           </div>
         </div>
         <div className="div-block-56-copy">
-          <img src="/img/other-blockchain.png" loading="lazy" alt="" className="image-25-copy" />
+          <img
+            src="./img/other-blockchain.png"
+            loading="lazy"
+            alt=""
+            className="image-25-copy planet-animation"
+          />
           <div className="container tech center-container vertical-padding-container">
             <h2 className="c-h2 no-m left-align mob-left ch-s4-h-v4 max-w-600">
               SKALE Fixed Cost Structure vs. Other Blockchains
@@ -1607,7 +1620,7 @@ export default function Header() {
             </p>
             <div className="scale-network-wrap">
               <img
-                src="/img/network-cogestion-mobile.png"
+                src="./img/network-cogestion-mobile.png"
                 loading="lazy"
                 data-w-id="3ce6b579-89ff-6173-09ae-80880f6ae253"
                 sizes="100vw"
@@ -1619,8 +1632,8 @@ export default function Header() {
         </div>
         <div className="div-block-56">
           <img
-            className="image-25"
-            src="/img/planet_moon.png"
+            className="image-25 planet-animation"
+            src="./img/planet_moon.png"
             alt=""
             sizes="(max-width: 479px) 100vw, 350px"
             loading="lazy"
@@ -1691,7 +1704,7 @@ export default function Header() {
               >
                 <div className="div-block-18">
                   <img
-                    src="/img/6289216f50f59f6ddf538d58_nodes1.svg"
+                    src="./img/6289216f50f59f6ddf538d58_nodes1.svg"
                     loading="lazy"
                     alt=""
                     className="tech-icon"
@@ -1705,7 +1718,7 @@ export default function Header() {
               </div>
               <div className="div-block-6 about-kit vertical flex-left">
                 <div className="div-block-18">
-                  <img src="/img/journey1.svg" loading="lazy" alt="" className="tech-icon" />
+                  <img src="./img/journey1.svg" loading="lazy" alt="" className="tech-icon" />
                 </div>
                 <h4 className="c-h3 left-align mt-24 mb-v2-h">
                   Interchain Messaging: BLS Threshold Signatures
@@ -1717,7 +1730,7 @@ export default function Header() {
               </div>
               <div className="div-block-6 about-kit vertical flex-left">
                 <div className="div-block-18">
-                  <img src="/img/blockchain1.svg" loading="lazy" alt="" className="tech-icon" />
+                  <img src="./img/blockchain1.svg" loading="lazy" alt="" className="tech-icon" />
                 </div>
                 <h4 className="c-h3 left-align mt-24 mb-v2-h">Node Monitoring</h4>
                 <p className="c-p mob-left">
@@ -1726,20 +1739,25 @@ export default function Header() {
                 </p>
               </div>
             </div>
-            <img className="image-27" src="/img/rocket.png" alt="" loading="lazy" />
+            <img
+              className="image-27 planet-animation"
+              src="./img/rocket.png"
+              alt=""
+              loading="lazy"
+            />
           </div>
         </div>
         <div className="div-block-78">
           <img
-            className="image-70"
-            src="/img/planet.png"
+            className="image-70 planet-animation"
+            src="./img/planet.png"
             alt=""
             sizes="(max-width: 991px) 100vw, 250px"
             loading="lazy"
           />
           <img
-            className="image-25 second"
-            src="/img/planet_2.png"
+            className="image-25 second planet-animation"
+            src="./img/planet_2.png"
             alt=""
             sizes="(max-width: 479px) 100vw, 350px"
             loading="lazy"
@@ -1759,7 +1777,7 @@ export default function Header() {
               <div className="column-25 hc-11 w-col w-col-6 w-col-medium-6 w-col-small-small-stack">
                 <div className="div-block-20">
                   <img
-                    src="/img/Group44575.png"
+                    src="./img/Group44575.png"
                     loading="lazy"
                     sizes="(max-width: 479px) 90vw, (max-width: 767px) 92vw, 45vw"
                     alt=""
@@ -1794,7 +1812,7 @@ export default function Header() {
               <div className="column-11 reverse flex-align-center hc-11 w-col w-col-6">
                 <div className="div-block-20">
                   <img
-                    src="/img/Group44889.png"
+                    src="./img/Group44889.png"
                     loading="lazy"
                     sizes="100vw"
                     alt=""
@@ -1807,7 +1825,7 @@ export default function Header() {
               <div className="column-12 flex-align-center hc-11 w-col w-col-6">
                 <div className="div-block-20">
                   <img
-                    src="/img/Group44887.png"
+                    src="./img/Group44887.png"
                     loading="lazy"
                     sizes="(max-width: 479px) 90vw, (max-width: 767px) 92vw, 45vw"
                     alt=""
@@ -1829,7 +1847,13 @@ export default function Header() {
           </div>
         </div>
         <div className="div-block-142">
-          <img src="/img/telescope.png" loading="lazy" sizes="100vw" alt="" className="image-114" />
+          <img
+            src="./img/telescope.png"
+            loading="lazy"
+            sizes="100vw"
+            alt=""
+            className="image-114 planet-animation"
+          />
           <div className="div-block-143">
             <h2 className="c-h2">Top SKALE Supporters</h2>
             <div className="div-block-144 toss">
@@ -1840,7 +1864,7 @@ export default function Header() {
                       <div className="div-block-181">
                         <div className="div-block-345">
                           <img
-                            src={`/img/${supportCompany.image}`}
+                            src={`./img/${supportCompany.image}`}
                             loading="lazy"
                             alt=""
                             className="support-logo"
@@ -1864,7 +1888,7 @@ export default function Header() {
         <div className="div-block-42 build-on-skale-container">
           <div className="container build-container home v2 py-0 mob-left">
             <img
-              src="/img/logo-3d.png"
+              src="./img/logo-3d.png"
               loading="lazy"
               alt=""
               className="image-19 build-skale-logo"
@@ -1899,7 +1923,7 @@ export default function Header() {
             <div className="columns-5 footer-newsletter-container w-row">
               <div className="footer-newsletter w-col w-col-5 w-col-stack">
                 <div className="newsletter-container">
-                  <img src="/img/logo-footer.svg" loading="lazy" alt="" className="image-2" />
+                  <img src="./img/logo-footer.svg" loading="lazy" alt="" className="image-2" />
                   <ul role="list" className="list-2 left-list w-list-unstyled">
                     <li>
                       <a

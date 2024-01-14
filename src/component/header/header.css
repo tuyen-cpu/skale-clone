@@ -2231,6 +2231,38 @@ iframe {
     display: block;
 }
 
+.planet-animation {
+    animation: bounce 2.5s linear infinite; /* Thời gian, kiểu và lặp vô hạn */
+    transition: transform 0.4s linear;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateX(0) translateY(0); /* Đứng đưa tại chỗ */
+    }
+    10% {
+        transform: translateX(2px) translateY(-2px);
+    }
+    20% {
+        transform: translateX(4px) translateY(-5px);
+    }
+    30% {
+        transform: translateX(10px) translateY(-7px);
+    }
+    40% {
+        transform: translateX(8px) translateY(-10px);
+    }
+    60% {
+        transform: translateX(6px) translateY(-15px);
+    }
+    80% {
+        transform: translateX(2px) translateY(-10px);
+    }
+    100% {
+        transform: translateX(0px) translateY(0);
+    }
+}
+
 /* normal */
 @media screen and (max-width: 991px) {
     .link-block {
