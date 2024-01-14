@@ -124,7 +124,7 @@ export default function Header() {
             data-duration="400"
             data-doc-height="1"
           >
-            <div className="container-2 w-container">
+            <div className="container1-2 w-container1">
               <a
                 href="/"
                 aria-current="page"
@@ -170,7 +170,7 @@ export default function Header() {
                       role="button"
                       tabIndex="0"
                     >
-                      <a href="#" className="dropdown-link-container nav-link-2 w-inline-block">
+                      <a href="#" className="dropdown-link-container1 nav-link-2 w-inline-block">
                         <div>Network</div>
                         <div className="icon-5 w-icon-dropdown-toggle" aria-hidden="true"></div>
                       </a>
@@ -207,7 +207,7 @@ export default function Header() {
                       role="button"
                       tabIndex="0"
                     >
-                      <a href="#" className="dropdown-link-container w-inline-block">
+                      <a href="#" className="dropdown-link-container1 w-inline-block">
                         <div>Developers</div>
                         <div className="icon-5 w-icon-dropdown-toggle" aria-hidden="true"></div>
                       </a>
@@ -298,7 +298,7 @@ export default function Header() {
                   }}
                 >
                   <div className="text-block-7 mobile-menu-title">Menu</div>
-                  <div className="div-block-50 mobile-nav-container">
+                  <div className="div-block-50 mobile-nav-container1">
                     <a
                       href="/old-home"
                       className="nav-link-2 w-nav-link"
@@ -593,7 +593,7 @@ export default function Header() {
                   }}
                 >
                   <div className="text-block-7 mobile-menu-title">Menu</div>
-                  <div className="div-block-50 mobile-nav-container">
+                  <div className="div-block-50 mobile-nav-container1">
                     <a
                       href="/old-home"
                       className="nav-link-2 w-nav-link w--nav-link-open"
@@ -817,7 +817,7 @@ export default function Header() {
       </div>
       <div className="overflow-hidden1 overflow-unset">
         <div className="div-block home v2 pad-5">
-          <div className="video-code-container w-embed">
+          <div className="video-code-container1 w-embed">
             <div className="background-video-2 hide w-background-video w-background-video-atom">
               <video
                 id="4b33688e-afcf-3aad-da1b-75aa4167e092-video"
@@ -893,7 +893,7 @@ export default function Header() {
         <div className="div-block-323">
           <div></div>
           <div className="div-block-326"></div>
-          <div className="container stats-home">
+          <div className="container1 stats-home">
             <div className="div-block-331">
               <div className="div-block-330">
                 <div className="div-block-327">
@@ -954,7 +954,7 @@ export default function Header() {
             </div>
           </div>
         </div>
-        <div className="container network-description">
+        <div className="container1 network-description">
           <div className="columns home w-row">
             <div className="column-19 w-col w-col-6">
               <h2 className="c-h2 left-align mb-12">Zero Gas Fees. Forever</h2>
@@ -988,7 +988,7 @@ export default function Header() {
           </div>
         </div>
 
-        <div className="container">
+        <div className="container1">
           <img
             className="image-15 planet-animation"
             src="./img/asteroid.png"
@@ -1047,7 +1047,7 @@ export default function Header() {
               >
                 <h4 className="c-h3 left-align mt-24">Eco-Friendly</h4>
                 <p className="c-p mb-32 mob-left">
-                  SKALE is an eco-friendly blockchain using PoS and efficient containerization to
+                  SKALE is an eco-friendly blockchain using PoS and efficient container1ization to
                   optimize resource allocation of SKALE compute, reducing waste.
                 </p>
               </div>
@@ -1088,7 +1088,7 @@ export default function Header() {
             />
           </div>
         </div>
-        <div className="container">
+        <div className="container1">
           <div className="columns-3 home v2 w-row">
             <div className="column-45 w-col w-col-9">
               <h2 className="c-h2 left-align mb-0 p-r v2">What’s New With SKALE</h2>
@@ -1189,7 +1189,7 @@ export default function Header() {
             </div>
           </div>
         </div>
-        <div className="container">
+        <div className="container1">
           <h2 className="c-h2 left-align mb-0 p-r v2 large">
             <strong>SKALE's Expanding Spectrum of Use Cases</strong>
           </h2>
@@ -1231,7 +1231,7 @@ export default function Header() {
             </div>
           </div>
         </div>
-        <div className="container small">
+        <div className="container1 small">
           <h2 className="c-h2 left-align mb-0 p-r v2 smaller">Why Choose SKALE For Gaming</h2>
           <div className="w-layout-grid grid-33">
             <AnimationOnScroll animateIn="animate__bounceInLeft">
@@ -1306,7 +1306,7 @@ export default function Header() {
             sizes="(max-width: 479px) 100vw, (max-width: 991px) 150px, 224px"
             loading="lazy"
           />
-          <div className="container">
+          <div className="container1">
             <h2 className="c-h2 left-align mb-0 p-r v2 smaller">Gas Free Gaming in Action</h2>
             <div className="columns-13 reverse new-column w-row">
               <div className="column-12 hc-12 _w-100 w-col w-col-6 w-col-stack w-col-tiny-tiny-stack">
@@ -1341,7 +1341,7 @@ export default function Header() {
             </div>
           </div>
         </div>
-        <div className="container">
+        <div className="container1">
           <h2 className="c-h2 left-align mb-0 p-r v2 smaller">
             Player-first Games Powered by SKALE
           </h2>
@@ -1396,7 +1396,7 @@ export default function Header() {
             </a>
           </div>
         </div>
-        <div className="container">
+        <div className="container1">
           <div className="columns-13 reverse new-column w-row">
             <div className="column-12 hc-12 center w-col w-col-6 w-col-stack">
               <div className="uptitle">AI</div>
@@ -1429,7 +1429,7 @@ export default function Header() {
             alt=""
             className="image-70 left planet-animation"
           />
-          <div className="container">
+          <div className="container1">
             <h2 className="c-h2 left-align mb-0 p-r v2 smaller">AI-Optimized Features</h2>
             <div className="w-layout-grid grid-2 home-grid _3">
               <AnimationOnScroll animateIn="animate__flipInY">
@@ -1475,7 +1475,7 @@ export default function Header() {
             </div>
           </div>
         </div>
-        <div className="container mt-64 left">
+        <div className="container1 mt-64 left">
           <div className="uptitle left-1">OTHER USE CASES</div>
           <div className="w-layout-grid grid-32">
             <div className="solution-card _w-30">
@@ -1647,7 +1647,7 @@ export default function Header() {
           </div>
         </div>
         <div className="sticky-gap">
-          <div className="container mb-64 mt-0">
+          <div className="container1 mb-64 mt-0">
             <h2 className="c-h2 left-align mb-0 p-r v2 smaller mb-24 center">Start Building</h2>
             <p className="c-p centered max-w-700 p-hero mb-0">
               Build with simple, powerful APIs and SDKs. Access native tools to drive innovative gas
@@ -1680,7 +1680,7 @@ export default function Header() {
             alt=""
             className="image-25-copy planet-animation"
           />
-          <div className="container tech center-container vertical-padding-container">
+          <div className="container1 tech center-container1 vertical-padding-container1">
             <h2 className="c-h2 no-m left-align mob-left ch-s4-h-v4 max-w-600">
               SKALE Fixed Cost Structure vs. Other Blockchains
             </h2>
@@ -1710,7 +1710,7 @@ export default function Header() {
             sizes="(max-width: 479px) 100vw, 350px"
             loading="lazy"
           />
-          <div className="container tech center-container">
+          <div className="container1 tech center-container1">
             <h2 className="c-h2 no-m left-align mob-left ch-s4-h-v4 max-w-600">How SKALE Works</h2>
             <h2 className="heading-3 scaling-sub-title center light-text tech v3 text-center">
               Harmonizing Speed, Security, and Decentralization
@@ -1782,7 +1782,7 @@ export default function Header() {
           </div>
         </div>
         <div className="div-block-77">
-          <div className="container no-flex">
+          <div className="container1 no-flex">
             <h2 className="c-h2 mb-0 left-align">The Tech Behind SKALE</h2>
             <AnimationOnScroll animateIn="animate__bounceInRight">
               <div className="w-layout-grid grid-6">
@@ -1852,13 +1852,13 @@ export default function Header() {
             sizes="(max-width: 479px) 100vw, 350px"
             loading="lazy"
           />
-          <div className="container performance per-container">
+          <div className="container1 performance per-container1">
             <div className="div-block-19">
               <h2 className="c-h2 font-medium contra-v2">
                 Containerized Subnodes Provide Unparalleled Performance
               </h2>
               <p className="c-p centered mob-left">
-                A unique containerized subnode structure unlocks enterprise-grade performance and
+                A unique container1ized subnode structure unlocks enterprise-grade performance and
                 offers dApp developers options on par with centralized systems, including
                 elasticity, configurability, and modularity.
               </p>
@@ -1927,7 +1927,7 @@ export default function Header() {
                 <h4 className="c-h2 left-align font-v2 mt-24">Node Architecture</h4>
                 <h4 className="c-h3 left-align">Containerized Validator Nodes</h4>
                 <p className="c-p">
-                  The virtualized subnodes are supported by an innovative containerized architecture
+                  The virtualized subnodes are supported by an innovative container1ized architecture
                   that provides industrial-grade performance for decentralized application
                   developers. SKALE's high performance and flexibility come from leveraging the
                   resources of the entire network for each independent chain.
@@ -1978,8 +1978,8 @@ export default function Header() {
             </div>
           </div>
         </div>
-        <div className="div-block-42 build-on-skale-container">
-          <div className="container build-container home v2 py-0 mob-left">
+        <div className="div-block-42 build-on-skale-container1">
+          <div className="container1 build-container1 home v2 py-0 mob-left">
             <img
               src="./img/logo-3d.png"
               loading="lazy"
@@ -2012,10 +2012,10 @@ export default function Header() {
           </div>
         </div>
         <div className="footer">
-          <div className="container footer-container">
-            <div className="columns-5 footer-newsletter-container w-row">
+          <div className="container1 footer-container1">
+            <div className="columns-5 footer-newsletter-container1 w-row">
               <div className="footer-newsletter w-col w-col-5 w-col-stack">
-                <div className="newsletter-container">
+                <div className="newsletter-container1">
                   <img src="./img/logo-footer.svg" loading="lazy" alt="" className="image-2" />
                   <ul role="list" className="list-2 left-list w-list-unstyled">
                     <li>
@@ -2149,7 +2149,7 @@ export default function Header() {
                 <h6 className="heading-6 main-copyright">© 2018–2023 N.O.D.E. Anstalt</h6>
               </div>
               <div className="column-41 w-col w-col-7 w-col-stack">
-                <div className="flex-row footer-nav-container">
+                <div className="flex-row footer-nav-container1">
                   <a href="#" className="link-block-4 w-inline-block">
                     <h6 className="heading-7 footer-link-title">Network</h6>
                   </a>
@@ -2219,7 +2219,7 @@ export default function Header() {
                   <div className="mt-4">
                     <button
                       type="button"
-                      className="inline-flex justify-center rounded-md border  bg-blue-100 px-4 py-2 text-sm font-medium hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      className="inline-flex justify-center rounded-md border  bg-blue-100 px-4 py-2 text-sm font-medium hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 btn-submit"
                       onClick={closeModal}
                     >
                       Got it, thanks!
