@@ -2242,7 +2242,8 @@ iframe {
 }
 
 .planet-animation {
-    transition: all 500ms;
+    animation: bounce 2.5s linear infinite;
+    transition: transform 0.4s linear;
 }
 
 .div-block-6-custom {
